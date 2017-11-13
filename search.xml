@@ -313,11 +313,11 @@ git log --graph --pretty=oneline --abbrev-commit    查看分支合并情况
         
         <tags>
             
-            <tag> life </tag>
-            
             <tag> 牛客 </tag>
             
             <tag> 程序猿 </tag>
+            
+            <tag> life </tag>
             
         </tags>
         
