@@ -203,12 +203,12 @@ amiao.min.css?v=161022:9
 if(IsPC())
 {
     bgrandom();
-    window.setInterval(bgrandom, 50000); 
+    window.setInterval(bgrandom, 200000); 
 }
 
 function bgrandom() 
 { 
-    var randomNum = Math.floor(Math.random() * 34 + 1);
+    var randomNum = Math.floor(Math.random() * 40 + 1);
     $("body").css("background-image", "url(" + "https://whark.oss-cn-hangzhou.aliyuncs.com/blog/image/background/" + randomNum + ".jpg-bg" + ")");
     //document.body.style.backgroundImage="url(" + "https://whark.oss-cn-hangzhou.aliyuncs.com/blog/image/background/" + randomNum +".jpg-bg" + ")";
 }
@@ -255,7 +255,7 @@ function IsPC() {
 <div class="mdl-card mdl-shadow--2dp daily-pic mdl-cell mdl-cell--8-col index-top-block">
 
     <!-- Pic & Slogan -->
-    <div class="mdl-card__media mdl-color-text--grey-50" style="background-image:url(https://whark.oss-cn-hangzhou.aliyuncs.com/blog/image/daily_pic.jpg)">
+    <div class="mdl-card__media mdl-color-text--grey-50" style="background-image:url(https://whark.oss-cn-hangzhou.aliyuncs.com/blog/image/daily_pic.jpg-bg)">
         <p class="index-top-block-slogan"><a href="#">
         
             
@@ -943,7 +943,7 @@ function IsPC() {
 
     var locatePost = $('.locate-thumbnail-symbol').next();
     for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 18 + 1);
+        randomNum = Math.floor(Math.random() * 35 + 1);
 
         locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
         locatePost.children('.post_thumbnail-random').css('background-image', 'url(' + 'https://whark.oss-cn-hangzhou.aliyuncs.com/blog/image/random/' + randomNum + '.jpg-blog' + ')')
@@ -1179,12 +1179,12 @@ function IsPC() {
         
         <!--Copyright-->
         <div id="copyright">
-            ©
+            ©2017-
             <script type="text/javascript">
                 var fd = new Date();
                 document.write(fd.getFullYear());
             </script>
-            <a href="http://iotshow.top/">Whark's Blog</a>
+            <a href="/">Whark's Blog</a>
             · 
             <a href="http://www.miitbeian.gov.cn/">皖ICP备17005522号-1</a>
         </div>
@@ -1193,7 +1193,7 @@ function IsPC() {
 
         <div id="power">
             <a href="https://hexo.io" >Hexo</a> ·
-            <a href="http://iotshow.top/about.html">dphong</a>
+            <a href="https://whark.cn/about.html">Whark</a>
         </div>
     
 </footer>
