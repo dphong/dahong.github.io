@@ -35,7 +35,14 @@ Win + R, 输入shutdown-s -t 3600
 #取消定时关机
 Win + R，输入shutdown -a
 </code></pre><h5 id="软件推荐"><a href="#软件推荐" class="headerlink" title="软件推荐"></a>软件推荐</h5><ul>
-<li>文件查找软件：<a href="https://www.voidtools.com/downloads" target="_blank" rel="external">everything</a></li>
+<li><p>文件查找：<a href="https://www.voidtools.com/downloads" target="_blank" rel="external">everything</a></p>
+</li>
+<li><p>优雅打开应用：<a href="http://www.launchy.net" target="_blank" rel="external">launchy</a></p>
+</li>
+<li><p>跨平台IDE：</p>
+<p>​    微软出品：<a href="https://code.visualstudio.com/" target="_blank" rel="external">VS code</a></p>
+<p>​    Github出品：<a href="https://atom.io/" target="_blank" rel="external">ATOM</a></p>
+</li>
 </ul>
 <h3 id="Chrome插件推荐"><a href="#Chrome插件推荐" class="headerlink" title="Chrome插件推荐"></a>Chrome插件推荐</h3><ul>
 <li>屏蔽广告：<a href="https://github.com/guidesmiths/adblock-plus-crx/raw/master/bin/Adblock-Plus_v1.12.4.crx" target="_blank" rel="external">Adblock</a><a href="https://github.com/guidesmiths/adblock-plus-crx/raw/master/bin/Adblock-Plus_v1.12.4.crx" target="_blank" rel="external">-Plus</a></li>
@@ -185,13 +192,13 @@ wpa-psk Your_Wifi_Password
         
         <tags>
             
+            <tag> skill </tag>
+            
             <tag> 树莓派 </tag>
             
             <tag> source </tag>
             
             <tag> ip </tag>
-            
-            <tag> skill </tag>
             
         </tags>
         
@@ -316,9 +323,9 @@ fi
         
         <tags>
             
-            <tag> 树莓派 </tag>
-            
             <tag> skill </tag>
+            
+            <tag> 树莓派 </tag>
             
             <tag> IP </tag>
             
@@ -543,11 +550,11 @@ git log --graph --pretty=oneline --abbrev-commit    查看分支合并情况
         
         <tags>
             
-            <tag> skill </tag>
-            
             <tag> 批处理 </tag>
             
             <tag> Excel </tag>
+            
+            <tag> skill </tag>
             
         </tags>
         
