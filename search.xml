@@ -192,13 +192,13 @@ wpa-psk Your_Wifi_Password
         
         <tags>
             
+            <tag> skill </tag>
+            
             <tag> 树莓派 </tag>
             
             <tag> source </tag>
             
             <tag> ip </tag>
-            
-            <tag> skill </tag>
             
         </tags>
         
@@ -239,7 +239,7 @@ handler.on(&apos;push&apos;, function (event) {
     event.payload.ref);
     run_cmd(&apos;sh&apos;, [&apos;./deploy.sh&apos;,event.payload.repository.name], function(text){ console.log(text) });
 })
-</code></pre><p>上面的代码中用到了一个github-webhook-handler的中间件，你可以用<figure class="highlight plain"><figcaption><span>install -g github-webhook-handler```来全局安装。</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">还有代码这行:</div><div class="line"></div><div class="line">	var handler = createHandler(&#123; path: &apos;/&apos;, secret: &apos;root&apos; &#125;) </div><div class="line"></div><div class="line">其中secret后的参数是你在github的项目中添加webhook时设置的secret值，替换成自己的就行了</div><div class="line"></div><div class="line">### 完成deploy.sh脚本</div><div class="line"></div><div class="line">deploy.sh脚本负责进入项目的目录，然后利用git命令拉取最新的代码，还是直接贴代码:</div><div class="line"></div><div class="line">    #!/bin/bash</div><div class="line">    </div><div class="line">    WEB_PATH=&apos;/root/tools/&apos;$1</div><div class="line">    WEB_USER=&apos;root&apos;</div><div class="line">    WEB_USERGROUP=&apos;root&apos;</div><div class="line">    </div><div class="line">    echo &quot;Start deployment&quot;</div><div class="line">    cd $WEB_PATH</div><div class="line">    echo &quot;pulling source code...&quot;</div><div class="line">    git reset --hard origin/master</div><div class="line">    git clean -f</div><div class="line">    git pull</div><div class="line">    git checkout master</div><div class="line">    echo &quot;changing permissions...&quot;</div><div class="line">    chown -R $WEB_USER:$WEB_USERGROUP $WEB_PATH</div><div class="line">    echo &quot;Finished.&quot;</div><div class="line"></div><div class="line">deploy.sh 会接受第一个参数当做项目名字，然后进入这个项目的目录执行git操作，这个参数是在deploy.js中根据hook返回的项目名字来的，代码应该比较容易懂，都是些简单的git命令。</div><div class="line"></div><div class="line">    如果是全新的项目，需要在你的服务器上先clone要部署的项目</div><div class="line">    你需要根据自己的实际项目位置，修改WEB_PATH的值</div><div class="line"></div><div class="line">### 后台运行deploy.js</div><div class="line">利用Linux提供的nohup命令，让deploy.js运行在后台</div><div class="line"></div><div class="line">	nohup node deploy.js &gt; deploy.log &amp;</div><div class="line"></div><div class="line">### 去Github后台添加webhook</div><div class="line">进入你需要自动部署的项目的github地址，进入项目的设置页面，点击左侧的```Webhooks &amp; services</div></pre></td></tr></table></figure></p>
+</code></pre><p>上面的代码中用到了一个github-webhook-handler的中间件，你可以用 <figure class="highlight plain"><figcaption><span>install -g github-webhook-handler ``` 来全局安装。</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">还有代码这行:</div><div class="line"></div><div class="line">	var handler = createHandler(&#123; path: &apos;/&apos;, secret: &apos;root&apos; &#125;) </div><div class="line"></div><div class="line">其中secret后的参数是你在github的项目中添加webhook时设置的secret值，替换成自己的就行了</div><div class="line"></div><div class="line">### 完成deploy.sh脚本</div><div class="line"></div><div class="line">deploy.sh脚本负责进入项目的目录，然后利用git命令拉取最新的代码，还是直接贴代码:</div><div class="line"></div><div class="line">    #!/bin/bash</div><div class="line">    </div><div class="line">    WEB_PATH=&apos;/root/tools/&apos;$1</div><div class="line">    WEB_USER=&apos;root&apos;</div><div class="line">    WEB_USERGROUP=&apos;root&apos;</div><div class="line">    </div><div class="line">    echo &quot;Start deployment&quot;</div><div class="line">    cd $WEB_PATH</div><div class="line">    echo &quot;pulling source code...&quot;</div><div class="line">    git reset --hard origin/master</div><div class="line">    git clean -f</div><div class="line">    git pull</div><div class="line">    git checkout master</div><div class="line">    echo &quot;changing permissions...&quot;</div><div class="line">    chown -R $WEB_USER:$WEB_USERGROUP $WEB_PATH</div><div class="line">    echo &quot;Finished.&quot;</div><div class="line"></div><div class="line">deploy.sh 会接受第一个参数当做项目名字，然后进入这个项目的目录执行git操作，这个参数是在deploy.js中根据hook返回的项目名字来的，代码应该比较容易懂，都是些简单的git命令。</div><div class="line"></div><div class="line">    如果是全新的项目，需要在你的服务器上先clone要部署的项目</div><div class="line">    你需要根据自己的实际项目位置，修改WEB_PATH的值</div><div class="line"></div><div class="line">### 后台运行deploy.js</div><div class="line">利用Linux提供的nohup命令，让deploy.js运行在后台</div><div class="line"></div><div class="line">	nohup node deploy.js &gt; deploy.log &amp;</div><div class="line"></div><div class="line">### 去Github后台添加webhook</div><div class="line">进入你需要自动部署的项目的github地址，进入项目的设置页面，点击左侧的 ``` Webhooks &amp; services</div></pre></td></tr></table></figure></p>
 <p>!<img src="http://whark.oss-cn-hangzhou.aliyuncs.com/posts/hithub-webhook.jpg" alt="hithub-webhook"></p>
 ]]></content>
       
@@ -336,9 +336,9 @@ fi
         
         <tags>
             
-            <tag> 树莓派 </tag>
-            
             <tag> skill </tag>
+            
+            <tag> 树莓派 </tag>
             
             <tag> IP </tag>
             
@@ -563,11 +563,11 @@ git log --graph --pretty=oneline --abbrev-commit    查看分支合并情况
         
         <tags>
             
-            <tag> skill </tag>
-            
             <tag> 批处理 </tag>
             
             <tag> Excel </tag>
+            
+            <tag> skill </tag>
             
         </tags>
         
