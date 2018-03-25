@@ -2,7 +2,7 @@
 <html lang="zh">
     <head>
     
-    <title>树莓派初始化配置 | Whark&#39;s Blog</title>
+    <title>Git的配置及使用 | Whark&#39;s Blog</title>
 
     <!-- Favicons -->
     <link rel="icon shortcut" type="image/ico" href="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/image/favicon.png-img">
@@ -17,7 +17,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Whark">
     <meta name="description" content="Creating and enjoy my life.">
-    <meta name="keywords" content="Whark dphong whark.cn,skill,树莓派,source,ip">
+    <meta name="keywords" content="Whark dphong whark.cn,skill,Git,版本控制">
 
     <!--iOS -->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -38,9 +38,9 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="https://whark.cn">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="树莓派初始化配置 | Whark&#39;s Blog">
+    <meta property="og:title" content="Git的配置及使用 | Whark&#39;s Blog">
     <meta property="og:description" content="Creating and enjoy my life.">
-    <meta property="og:article:tag" content="skill"> <meta property="og:article:tag" content="树莓派"> <meta property="og:article:tag" content="source"> <meta property="og:article:tag" content="ip"> 
+    <meta property="og:article:tag" content="skill"> <meta property="og:article:tag" content="Git"> <meta property="og:article:tag" content="版本控制"> 
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/css/ie-blocker.css">
@@ -273,7 +273,7 @@ function IsPC() {
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#更换国内镜像源"><span class="post-toc-number">1.</span> <span class="post-toc-text">更换国内镜像源</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#source-list"><span class="post-toc-number">1.0.0.1.</span> <span class="post-toc-text">source.list</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#raspi-list"><span class="post-toc-number">1.0.0.2.</span> <span class="post-toc-text">raspi.list</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#连接-WiFi"><span class="post-toc-number">2.</span> <span class="post-toc-text">连接 WiFi</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#设置静态-IP-地址"><span class="post-toc-number">3.</span> <span class="post-toc-text">设置静态 IP 地址</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#下载Git"><span class="post-toc-number">1.</span> <span class="post-toc-text">下载Git</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#ubuntu"><span class="post-toc-number">1.0.1.</span> <span class="post-toc-text">ubuntu</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Windows"><span class="post-toc-number">1.0.2.</span> <span class="post-toc-text">Windows</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置Git"><span class="post-toc-number">2.</span> <span class="post-toc-text">配置Git</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#设置git用户名-邮箱"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">设置git用户名/邮箱</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Linux"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">Linux</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Windows-1"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">Windows</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用Git"><span class="post-toc-number">3.</span> <span class="post-toc-text">使用Git</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#从远程库克隆"><span class="post-toc-number">3.0.1.</span> <span class="post-toc-text">从远程库克隆</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#暂存区、工作区管理"><span class="post-toc-number">3.0.2.</span> <span class="post-toc-text">暂存区、工作区管理</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Git连接远程仓库"><span class="post-toc-number">3.0.3.</span> <span class="post-toc-text">Git连接远程仓库</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#分支管理"><span class="post-toc-number">3.0.4.</span> <span class="post-toc-text">分支管理</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#参考教程"><span class="post-toc-number">3.0.5.</span> <span class="post-toc-text">参考教程</span></a></li></ol></li></ol></li></ol>
 
         <!--
         <li class="mdl-menu__item">
@@ -309,7 +309,7 @@ function IsPC() {
         
     
             <p class="article-headline-p">
-                树莓派初始化配置
+                Git的配置及使用
             </p>
         </div>
 
@@ -328,7 +328,7 @@ function IsPC() {
     <!-- Author Name & Date -->
     <div>
         <strong>Whark</strong>
-        <span>11月 12, 2017</span>
+        <span>5月 22, 2017</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -352,7 +352,7 @@ function IsPC() {
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/ip/">ip</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/skill/">skill</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/source/">source</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/树莓派/">树莓派</a>
+        <a class="post_tag-link" href="/tags/Git/">Git</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/skill/">skill</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/版本控制/">版本控制</a>
     </ul>
     
 
@@ -379,7 +379,7 @@ function IsPC() {
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=树莓派初始化配置&url=https://whark.cn//2017/11/12/first-use-raspberry/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Git的配置及使用&url=https://whark.cn//2017/05/22/use-of-git/index.html&pic=&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -388,7 +388,7 @@ function IsPC() {
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=树莓派初始化配置&url=https://whark.cn//2017/11/12/first-use-raspberry/index.html&via=Whark" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Git的配置及使用&url=https://whark.cn//2017/05/22/use-of-git/index.html&via=Whark" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -397,7 +397,7 @@ function IsPC() {
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://whark.cn//2017/11/12/first-use-raspberry/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://whark.cn//2017/05/22/use-of-git/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -406,7 +406,7 @@ function IsPC() {
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=https://whark.cn//2017/11/12/first-use-raspberry/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://whark.cn//2017/05/22/use-of-git/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -418,7 +418,7 @@ function IsPC() {
 
     <!-- Share QQ -->
     
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Whark&#39;s Blog&title=树莓派初始化配置&summary=Creating and enjoy my life.&pics=https://whark.cnhttps://whark.oss-cn-hangzhou.aliyuncs.com/blog/image/favicon.png-img&url=https://whark.cn/2017/11/12/first-use-raspberry/index.html" target="_blank">
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Whark&#39;s Blog&title=Git的配置及使用&summary=Creating and enjoy my life.&pics=https://whark.cnhttps://whark.oss-cn-hangzhou.aliyuncs.com/blog/image/favicon.png-img&url=https://whark.cn/2017/05/22/use-of-git/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 QQ
             </li>
@@ -436,46 +436,63 @@ function IsPC() {
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h2 id="更换国内镜像源"><a href="#更换国内镜像源" class="headerlink" title="更换国内镜像源"></a>更换国内镜像源</h2><p>很多教程没有写完整，更换源需要修改两个文件。<br>经过我的测试，发现两个文件分别使用阿里和中科大的效果最好。</p>
-<h5 id="source-list"><a href="#source-list" class="headerlink" title="source.list"></a>source.list</h5><pre><code>sudo nano /etc/apt/sources.list
-</code></pre><p>将原来的配置注释掉，添加第二行即可</p>
-<pre><code>#deb http://mirrordirector.raspbian.org/raspbian/ jessie main contrib non-free rpi
-deb http://mirrors.aliyun.com/raspbian/raspbian/ jessie main contrib non-free rpi
-# Uncomment line below then &apos;apt-get update&apos; to enable &apos;apt-get source&apos;
-#deb-src http://archive.raspbian.org/raspbian/ jessie main contrib non-free rpi
-</code></pre><h5 id="raspi-list"><a href="#raspi-list" class="headerlink" title="raspi.list"></a>raspi.list</h5><p>使用中科大镜像源</p>
-<pre><code>sudo nano /etc/apt/sources.list.d/raspi.list
-</code></pre><p>将原来的配置注释掉，添加第二行即可</p>
-<pre><code>#deb http://archive.raspberrypi.org/debian/ jessie main ui
-deb http://mirrors.ustc.edu.cn/archive.raspberrypi.org/debian/ jessie main ui
-# Uncomment line below then &apos;apt-get update&apos; to enable &apos;apt-get source&apos;
-#deb-src http://archive.raspberrypi.org/debian/ jessie main ui
-</code></pre><h2 id="连接-WiFi"><a href="#连接-WiFi" class="headerlink" title="连接 WiFi"></a>连接 WiFi</h2><p>编辑 wifi 文件</p>
-<pre><code>sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
-</code></pre><p>在该文件最后添加：</p>
-<pre><code>network={
-  ssid=&quot;wifiname&quot;
-  psk=&quot;password&quot;
-}
-</code></pre><p><code>引号部分分别为 WiFi 的名字和密码</code></p>
-<p>保存文件后几秒钟应该就会自动连接到该 WiFi<br>或者执行</p>
-<pre><code>sudo ifdown wlan0
-sudo ifup wlan0
-</code></pre><p>查看是否连接成功</p>
-<pre><code>ifconfig wlan0
-</code></pre><h2 id="设置静态-IP-地址"><a href="#设置静态-IP-地址" class="headerlink" title="设置静态 IP 地址"></a>设置静态 IP 地址</h2><pre><code>sudo nano /etc/network/interfaces
+        <h3 id="下载Git"><a href="#下载Git" class="headerlink" title="下载Git"></a>下载Git</h3><h5 id="ubuntu"><a href="#ubuntu" class="headerlink" title="ubuntu"></a>ubuntu</h5><pre><code>sudo apt-get install git
+</code></pre><h5 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h5><p>Git<a href="https://git-for-windows.github.io/" target="_blank" rel="external">官网</a>下载安装</p>
+<h3 id="配置Git"><a href="#配置Git" class="headerlink" title="配置Git"></a>配置Git</h3><h4 id="设置git用户名-邮箱"><a href="#设置git用户名-邮箱" class="headerlink" title="设置git用户名/邮箱"></a>设置git用户名/邮箱</h4><pre><code>git config --global user.name [username]
+git config --global user.email [email]
+</code></pre><p>如果Git源每次操作需要你输入用户名/密码验证，就需要做如下设置：</p>
+<h5 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h5><pre><code>echo &quot;[credential]&quot; &gt;&gt; .git/config
+echo &quot;    helper = store&quot; &gt;&gt; .git/config
+</code></pre><h5 id="Windows-1"><a href="#Windows-1" class="headerlink" title="Windows"></a>Windows</h5><p>打开.git/config，在最后添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[credential]</div><div class="line">	helper = store</div></pre></td></tr></table></figure>
+<p>这样就可以保存用户名密码，不用每次都输入了！</p>
+<h3 id="使用Git"><a href="#使用Git" class="headerlink" title="使用Git"></a>使用Git</h3><h5 id="从远程库克隆"><a href="#从远程库克隆" class="headerlink" title="从远程库克隆"></a>从远程库克隆</h5><pre><code>git clone --depth=1 http://jdjks.hfnu.edu.cn/git/AnhuiIOT.git
+</code></pre><h5 id="暂存区、工作区管理"><a href="#暂存区、工作区管理" class="headerlink" title="暂存区、工作区管理"></a>暂存区、工作区管理</h5><pre><code>git add [file]                提交本次修改至暂存区
+git commit -m &quot;message&quot;        提交暂存区文件至版本库
+git status                    查看git工作区的状态
+git log                        查看版本库提交记录: 
+</code></pre><p>假设：<br>工作区：a<br>暂存区（index）:b<br>HEAD:C</p>
+<p>git diff命令</p>
+<pre><code>git diff           比较a跟b
+git diff --cached  比较b跟c
+git diff HEAD      比较a跟c
+</code></pre><p>git reset跟 git checkout</p>
+<pre><code>git reset HEAD              c覆盖b
+git checkout -- &lt;file&gt;      b覆盖a
+git checkout HEAD &lt;file&gt;    c覆盖a,b
+</code></pre><p>git rm命令</p>
+<pre><code>git rm              删除a跟b
+git rm --cached     只删除b
+rm file             只删除a
+</code></pre><p>放弃本地修改，强制pull： </p>
+<p><code>git fetch --all</code></p>
+<p><code>git reset --hard origin/master</code></p>
+<p>git fetch只是下载远程的库的内容，不做任何的合并。</p>
+<p>git reset把HEAD指向刚刚下载的最新的版本。</p>
+<h5 id="Git连接远程仓库"><a href="#Git连接远程仓库" class="headerlink" title="Git连接远程仓库"></a>Git连接远程仓库</h5><pre><code>git remote               查看远程库的信息  
+git remote -v            显示更详细的信息  
+git remote add origin git@git.coding.net:tengj/gitLearn.git  连接远程仓库  
+git clone git@git.coding.net:tengj/gitLearn.git            复制一份远程仓库项目到本地  
+git remote rm origin     关闭连接远程仓库  
+git push origin master   推送分支  
+git pull origin master   抓取更新
+</code></pre><h5 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h5><pre><code>git branch               查看当前分支
+git branch -v           查看每一个分支的最后一次提交
+git branch -a           查看本地和远程分支的情况
+git branch --merged      查看已经与当前分支合并的分支
+git branch --no-merged     查看已经与当前分支未合并的分支
+git branch -r            查看远程分支
+git branch dev           创建分支 dev
+git checkout dev         切换到分支dev
+git checkout -b dev      创建并切换分支dev
+git merge dev            名称为dev的分支与当前分支合并
+git branch -d dev        删除分支dev
+git merge --no-ff -m &quot;merge with no-ff&quot; dev            合并分支，禁用Fast forward
+git log --graph --pretty=oneline --abbrev-commit    查看分支合并情况
+</code></pre><h5 id="参考教程"><a href="#参考教程" class="headerlink" title="参考教程"></a>参考教程</h5><p><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">git教程–廖雪峰</a></p>
+<p><a href="https://juejin.im/user/577f597d5bbb500061e8a761" target="_blank" rel="external">掘金–嘟嘟MD</a></p>
+<p><a href="http://www.cnblogs.com/cspku/articles/Git_cmds.html" target="_blank" rel="external">Git常用命令</a></p>
 
-allow-hotplug wlan0
-iface wlan0 inet static # 将 manual 改为 static
-    address 192.168.1.111 # 静态地址
-    netmask 255.255.255.0 # 网络掩码
-    gateway 192.168.1.1 # 网关
-    network 192.168.1.1 # 网络地址
-    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
-</code></pre><p>wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf 可以替换为以下设置方式</p>
-<pre><code>wpa-ssid Your_Wifi_SSID
-wpa-psk Your_Wifi_Password
-</code></pre>
     
 
     
@@ -498,13 +515,21 @@ wpa-psk Your_Wifi_Password
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
+        <a href="/2017/05/30/scan-port/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2017/06/02/set-github-webhook/" id="post_nav-older" class="next-content">
+        <a href="/2017/05/21/nowcoder-first-test/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
@@ -634,7 +659,7 @@ wpa-psk Your_Wifi_Password
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/05/">五月 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/12/">十二月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/09/">九月 2016<span class="sidebar_archives-count">1</span></a>
+                <a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/05/">五月 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/12/">十二月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/09/">九月 2016<span class="sidebar_archives-count">1</span></a>
             </ul>
         </li>
         
