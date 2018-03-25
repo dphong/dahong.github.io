@@ -4,6 +4,119 @@
   
     
     <entry>
+      <title><![CDATA[PHP的容器 -- 依赖注入(DI) 和 控制反转(IoC)]]></title>
+      <url>https://whark.cn/2018/03/25/DI-and-IoC/</url>
+      <content type="html"><![CDATA[<p>本文内容大部分参考自：<a href="https://juejin.im/post/590c63ad1b69e600683bf8ea" target="_blank" rel="external">对PHP框架中的容器的理解</a></p>
+<h4 id="PHP的容器-–-依赖注入-DI-和-控制反转-IoC"><a href="#PHP的容器-–-依赖注入-DI-和-控制反转-IoC" class="headerlink" title="PHP的容器 – 依赖注入(DI) 和 控制反转(IoC)"></a>PHP的容器 – 依赖注入(DI) 和 控制反转(IoC)</h4><h5 id="DI-Dependency-Injection-依赖注入"><a href="#DI-Dependency-Injection-依赖注入" class="headerlink" title="DI  - Dependency Injection  依赖注入"></a>DI  - Dependency Injection  依赖注入</h5><h5 id="IoC-Inversion-of-Control-控制反转"><a href="#IoC-Inversion-of-Control-控制反转" class="headerlink" title="IoC - Inversion of Control  控制反转"></a>IoC - Inversion of Control  控制反转</h5><p>依赖注入和控制反转是对同一件事情的不同描述，从某个方面讲，就是它们描述的角度不同。</p>
+<ul>
+<li>依赖注入是从应用程序的角度在描述，可以把依赖注入，即：应用程序依赖容器创建并注入它所需要的外部资源；</li>
+<li>而控制反转是从容器的角度在描述，即：容器控制应用程序，由容器反向的向应用程序注入应用程序所需要的外部资源。</li>
+</ul>
+<h4 id="实现一个容器"><a href="#实现一个容器" class="headerlink" title="实现一个容器"></a>实现一个容器</h4><pre><code>//根据我们的上面的分析，容器至少需要俩个操作，分别是将类绑定到容器中以及将类从容器中取出的操作
+class Container
+{
+    //容器类列表
+    public static $generator_list = [];
+
+    // 绑定类到容器中 
+    public static function bind($class_name, $generator)
+    {
+        if (is_callable($generator)) {
+            self::$generator_list[$class_name] = $generator;
+        } else {
+            throw new Exception(&apos;对象生成器不是可以调用的类型&apos;);
+        }
+    }
+
+    // 生成类对象
+    public static function make($class_name, $params = [])
+    {
+        if (! isset(self::$generator_list[$class_name])) {
+            throw new Exception($class_name.&apos;类没有被绑定注册&apos;);
+        }
+        return call_user_func_array(self::$generator_list[$class_name], $params);
+    }
+}
+</code></pre><h4 id="使用容器"><a href="#使用容器" class="headerlink" title="使用容器"></a>使用容器</h4><pre><code>//我们先看一下bind()函数,该函数对应上面说到的绑定操作，就是将一个类放到$generator_list中，仔细看一下，你会发现，该函数并不是把一个类或者一个对象直接传递进去，而是传入了两个参数,一个是参数的名字，一个是生成器。
+//生成器说白了就是一个函数，这个函数是用来负责实例化需要绑定的类的。
+//说到这里,有同学可能有点疑惑，为什么要这样，为什么不直接传一个对象进去那?
+//原因是类的实例化的过程是需要传递参数的，传递一个生成器进去，我们在实例化这个类的时候就可以修改参数了。
+//下面就是一个绑定示例，大家可以看一下。
+    Container::bind(&quot;A&quot;,function($param){
+       return A($param);
+    })
+    self::$generator_list[&quot;A&quot;] = function($param){
+       return A($param);
+    };
+//这样，我们的绑定操作基本就说完了，下面看make()函数。之前也已经提到过了,make()函数就是将所需要的对象从这个容器中取出来。该函数也需要传递两个参数进去，一个是class_name也就是需要取出的类的名称,一个是params,也就是实例化对象的时候需要传递的参数。
+//下面的一行代码是整个函数的关键所在:
+call_user_func_array(self::$generator_list[$class_name], $params);
+self::$generator_list[$class_name]对应的是类的生成器,$params对应的是类实例化所需要的参数，
+//call_user_func_array()该函数是PHP的内置函数，通过该函数我们可以执行self::$generator_list[$class_name]对应的是类的生成器函数，这样我们也就是完成了所需类的实例化。(ps：对call_user_func_array()函数不清楚的同学可以先去看一下手册)
+</code></pre><h4 id="测试一下"><a href="#测试一下" class="headerlink" title="测试一下"></a>测试一下</h4><pre><code>//将类A的生成器函数(匿名函数/闭包)绑定到容器中
+Container::bind(&apos;A&apos;, function($name=&apos;&apos;) {
+    return new A($title);
+});
+//在容器类中获取类A的对象
+$Obj = Container::make(&apos;A&apos;, [&apos;aaa&apos;]);
+//打印出得到的这个对象
+var_dump($Obj);
+//打印结果如下:
+object(A)#2 (1) {
+  [&quot;name&quot;]=&gt;
+  string(4) &quot;aaa&quot;
+}
+//我们在打印出self::$generator_list中的数据看一下:
+array(1) {
+  [&quot;A&quot;]=&gt;
+  object(Closure)#1 (1) {
+    [&quot;parameter&quot;]=&gt;
+    array(1) {
+      [&quot;$name&quot;]=&gt;
+      string(10) &quot;&quot;
+    }
+  }
+}
+</code></pre><p>怎么样,看到上面打印出来的节后是不是就清楚一些了那…上面我们分析了一下容器类的具体的执行方式，上面的代码比较的简单，也灭有涉及到类相互依赖的问题，相比大家肯定想看一下类相互依赖的时候，容器类是怎么为我们解决依赖的，我们下面就写一个例子再分析一下，其实容器的代码我们基本不需要在动了。</p>
+<pre><code>//最开始的我们就举了一个B类依赖于A类的例子，现在我们继续使用这个例子来说明一下
+//绑定A类到容器中
+Container::bind(&apos;A&apos;, function($name=&apos;&apos;) {
+    return new A($title);
+});
+//绑定B类到容器中
+Container::bind(&apos;B&apos;, function($module,$params=[]) {
+    return new B(Container::make($module,$params));
+});
+//上面B类的绑定方式大家可能觉得有点怪，这是因为B类依赖于A类,所以我们在B类的生成器对象中(匿名函数)中需要得到A类的实例传参给B，
+//怎么获取A类的实例那，简单，因为A类也存在于容器中，所以我们直接调用make()函数就可以获取A类的实例对象了，
+//但是在实例化A类的时候，构造函数可能需要参数，为了能够得到这些参数，我们就需要在B类的生成器对象中将这些参数传递进来。
+//下面我们调用一下B类
+$Obj= Container::make(&apos;B&apos;, [&apos;A&apos;, [&apos;aaa&apos;]]);
+//上面我们就获取到了B类的实例化的对象了，是不是很简单，有兴趣的同学可以将上面的结果打印出来看一下。
+//我们再分析一下上面的步骤，想要获取B类的实例化对象,直接通过make()进行获取,
+//因为B依赖于A，所以需要传递A到生成器函数中，但是A有需要其他的参数，所以我们还需要继续传递其他参数进去，所以参数就是一个二维数组
+//上面对参数有疑问的同学可以按照上面的流程分析一遍，就清楚了
+</code></pre><h4 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h4><p>想要实现容器的自动依赖注入，需要使用反射，通过反射，获取类构造函数所需的参数，分析出所依赖的类，然后在容器中获取其所依赖的类，其实就是一层一层的找需要什么，需要什么就在容器中找什么，找到了就作为参数传递过去，这样就实现了自动注入解决了依赖的问题。</p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> PHP </tag>
+            
+            <tag> 依赖注入 </tag>
+            
+            <tag> 控制反转 </tag>
+            
+            <tag> 容器 </tag>
+            
+            <tag> 注册树 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Windows使用常用小技巧与翻墙]]></title>
       <url>https://whark.cn/2017/12/28/windows-skills-and-over-the-net-wall/</url>
       <content type="html"><![CDATA[<h3 id="Windows常用小技巧"><a href="#Windows常用小技巧" class="headerlink" title="Windows常用小技巧"></a>Windows常用小技巧</h3><h4 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h4><h5 id="窗口切换快捷键："><a href="#窗口切换快捷键：" class="headerlink" title="窗口切换快捷键："></a>窗口切换快捷键：</h5><pre><code>Win+上/下：使应用窗口在最大化，正常状态以及最小化之间进行切换
@@ -133,11 +246,11 @@ RUN curl -fsSL &apos;https://xcache.lighttpd.net/pub/Releases/3.2.0/xcache-3.2.0
         
         <tags>
             
+            <tag> 容器 </tag>
+            
             <tag> skill </tag>
             
             <tag> Docker </tag>
-            
-            <tag> 容器 </tag>
             
             <tag> 环境搭建 </tag>
             
@@ -192,9 +305,9 @@ wpa-psk Your_Wifi_Password
         
         <tags>
             
-            <tag> 树莓派 </tag>
-            
             <tag> skill </tag>
+            
+            <tag> 树莓派 </tag>
             
             <tag> source </tag>
             
@@ -361,11 +474,11 @@ fi
         
         <tags>
             
+            <tag> skill </tag>
+            
             <tag> 树莓派 </tag>
             
             <tag> IP </tag>
-            
-            <tag> skill </tag>
             
         </tags>
         
@@ -588,11 +701,11 @@ git log --graph --pretty=oneline --abbrev-commit    查看分支合并情况
         
         <tags>
             
-            <tag> skill </tag>
-            
             <tag> 批处理 </tag>
             
             <tag> Excel </tag>
+            
+            <tag> skill </tag>
             
         </tags>
         
