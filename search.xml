@@ -15,21 +15,36 @@ Win+Ctrl+F4：关闭正在使用的桌面
 Win+Ctrl+左/右：在已打开的桌面之间进行切换
 ALT+Tab
 Ctrl+ALT+TAB（滞留预览窗口）
-</code></pre><h5 id="照片应用键盘快捷键："><a href="#照片应用键盘快捷键：" class="headerlink" title="照片应用键盘快捷键："></a>照片应用键盘快捷键：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Ctrl+/：快速将编辑后的照片与原始照片进行对比</div><div class="line">Ctrl+R：旋转照片</div><div class="line">Ctrl+加号：放大照片</div><div class="line">Ctrl+减号：缩小照片</div></pre></td></tr></table></figure>
-<h5 id="精确式触摸板操作手势："><a href="#精确式触摸板操作手势：" class="headerlink" title="精确式触摸板操作手势："></a>精确式触摸板操作手势：</h5><p>注意：需要使用精确式触摸板才能使用这些操作手势，比如Surface键盘中的触摸板。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">三个手指向上轻扫：打开任务视图查看所有窗口</div><div class="line">三个手指向下轻扫：显示桌面</div><div class="line">三个手指向左侧或右侧轻扫：在打开的窗口之间进行切换。</div></pre></td></tr></table></figure>
-<h5 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">#开机启动软件管理</div><div class="line">Win + R，输入msconfig，点击启动，禁用无用启动项</div><div class="line"></div><div class="line">#休眠计算机</div><div class="line">Win + R，输入shutdown -h</div><div class="line"></div><div class="line">#定时关闭计算机（-t 后是时间参数，单位为秒）</div><div class="line">Win + R, 输入shutdown-s -t 3600</div><div class="line"></div><div class="line">#取消定时关机</div><div class="line">Win + R，输入shutdown -a</div></pre></td></tr></table></figure>
-<h5 id="软件推荐"><a href="#软件推荐" class="headerlink" title="软件推荐"></a>软件推荐</h5><ul>
+</code></pre><h5 id="照片应用键盘快捷键："><a href="#照片应用键盘快捷键：" class="headerlink" title="照片应用键盘快捷键："></a>照片应用键盘快捷键：</h5><pre><code>Ctrl+/：快速将编辑后的照片与原始照片进行对比
+Ctrl+R：旋转照片
+Ctrl+加号：放大照片
+Ctrl+减号：缩小照片
+</code></pre><h5 id="精确式触摸板操作手势："><a href="#精确式触摸板操作手势：" class="headerlink" title="精确式触摸板操作手势："></a>精确式触摸板操作手势：</h5><p>注意：需要使用精确式触摸板才能使用这些操作手势，比如Surface键盘中的触摸板。</p>
+<pre><code>三个手指向上轻扫：打开任务视图查看所有窗口
+三个手指向下轻扫：显示桌面
+三个手指向左侧或右侧轻扫：在打开的窗口之间进行切换。
+</code></pre><h5 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h5><pre><code>#开机启动软件管理
+Win + R，输入msconfig，点击启动，禁用无用启动项
+
+#休眠计算机
+Win + R，输入shutdown -h
+
+#定时关闭计算机（-t 后是时间参数，单位为秒）
+Win + R, 输入shutdown-s -t 3600
+
+#取消定时关机
+Win + R，输入shutdown -a
+</code></pre><h5 id="软件推荐"><a href="#软件推荐" class="headerlink" title="软件推荐"></a>软件推荐</h5><ul>
 <li>文件查找软件：<a href="https://www.voidtools.com/downloads" target="_blank" rel="external">everything</a></li>
 </ul>
-<h4 id="Chrome插件推荐"><a href="#Chrome插件推荐" class="headerlink" title="Chrome插件推荐"></a>Chrome插件推荐</h4><ul>
+<h3 id="Chrome插件推荐"><a href="#Chrome插件推荐" class="headerlink" title="Chrome插件推荐"></a>Chrome插件推荐</h3><ul>
 <li>屏蔽广告：<a href="https://github.com/guidesmiths/adblock-plus-crx/raw/master/bin/Adblock-Plus_v1.12.4.crx" target="_blank" rel="external">Adblock</a><a href="https://github.com/guidesmiths/adblock-plus-crx/raw/master/bin/Adblock-Plus_v1.12.4.crx" target="_blank" rel="external">-Plus</a></li>
 <li>记录网页内容：<a href="http://funp.in/" target="_blank" rel="external">方片收集</a></li>
 <li>代理插件：<a href="https://github.com/FelisCatus/SwitchyOmega/releases/download/v2.5.10/SwitchyOmega_Chromium.crx" target="_blank" rel="external">SwitchyOmega</a></li>
 <li>黑客级别插件：<a href="https://jeffjade.com/2015/10/19/2015-10-18-chrome-vimium/" target="_blank" rel="external">Vimium</a></li>
 </ul>
-<h4 id="翻墙"><a href="#翻墙" class="headerlink" title="翻墙"></a>翻墙</h4><p>推荐自己购买VPS服务器搭建SSR服务，比较安全，网上分享的免费帐号和免费软件，都不安全，数据走的他们的服务器，有些还留了有后门，为了数据安全还是自建吧。</p>
-<p>自己用的是 <a href="https://www.vultr.com/?ref=7323972" target="_blank" rel="external">Vultr</a>（\$2.5/月）和 <a href="https://m.do.co/c/f6107e737cf4" target="_blank" rel="external">Digitalocean</a> （\$5/月）的，性价比来说是最好的，之前 <a href="https://bandwagonhost.com/vps-hosting.php" target="_blank" rel="external">搬瓦工</a>（\$19.99/年）挺便宜的，但现在这个套餐已经没了。</p>
+<h3 id="翻墙"><a href="#翻墙" class="headerlink" title="翻墙"></a>翻墙</h3><p>推荐自己购买VPS服务器搭建SSR服务，比较安全，网上分享的免费帐号和免费软件，都不安全，数据走的他们的服务器，有些还留了有后门，为了数据安全还是自建吧。</p>
+<p>自己用的是 <a href="https://www.vultr.com/?ref=7323972" target="_blank" rel="external">Vultr</a>（$2.5/月）和 <a href="https://m.do.co/c/f6107e737cf4" target="_blank" rel="external">Digitalocean</a> （$5/月）的，性价比来说是最好的，之前 <a href="https://bandwagonhost.com/vps-hosting.php" target="_blank" rel="external">搬瓦工</a>（$19.99/年）挺便宜的，但现在这个套餐已经没了。</p>
 <h5 id="桌面客户端"><a href="#桌面客户端" class="headerlink" title="桌面客户端"></a>桌面客户端</h5><p><a href="https://github.com/shadowsocks/shadowsocks-windows" target="_blank" rel="external">shadowsocks-windows</a></p>
 <p><a href="https://github.com/shadowsocks/shadowsocks-iOS/releases" target="_blank" rel="external">shadowsocks-mac</a></p>
 <h5 id="移动客户端"><a href="#移动客户端" class="headerlink" title="移动客户端"></a>移动客户端</h5><p><a href="https://github.com/shadowsocksr-backup/shadowsocksr-android/releases" target="_blank" rel="external">shadowsocks-android</a></p>
@@ -73,12 +88,40 @@ Ctrl+ALT+TAB（滞留预览窗口）
 <p><a href="https://blog.csdn.net/qq_36763896/article/details/53293088" target="_blank" rel="external">7 步精简 Docker 镜像几百MB</a></p>
 <p><a href="https://goaccess.io/download" target="_blank" rel="external">搭建nginx访问日志分析工具Goaccess</a></p>
 <p><a href="https://docs.docker.com/samples/library/php/" target="_blank" rel="external">Docker镜像源中PHP的方法</a></p>
-<h4 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h4><p>Docker中PHP环境安装扩展的方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker-php-ext-install redis</div></pre></td></tr></table></figure>
-<h5 id="PHP-CORE-EXTENSIONS"><a href="#PHP-CORE-EXTENSIONS" class="headerlink" title="PHP CORE EXTENSIONS"></a>PHP CORE EXTENSIONS</h5><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">FROM</span> php:<span class="number">7.0</span>-fpm</div><div class="line"><span class="keyword">RUN</span> apt-get update &amp;&amp; apt-get install -y \</div><div class="line">        libfreetype6-dev \</div><div class="line">        libjpeg62-turbo-dev \</div><div class="line">        libmcrypt-dev \</div><div class="line">        libpng-dev \</div><div class="line">    &amp;&amp; docker-php-ext-install -j$(nproc) iconv mcrypt \</div><div class="line">    &amp;&amp; docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \</div><div class="line">    &amp;&amp; docker-php-ext-install -j$(nproc) gd</div></pre></td></tr></table></figure>
-<h5 id="PECL-EXTENSIONS"><a href="#PECL-EXTENSIONS" class="headerlink" title="PECL EXTENSIONS"></a>PECL EXTENSIONS</h5><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">FROM</span> php:<span class="number">7.1</span>-fpm</div><div class="line"><span class="keyword">RUN</span> pecl install redis-3.1.0 \</div><div class="line">	&amp;&amp; pecl install xdebug-2.5.0 \</div><div class="line">	&amp;&amp; docker-php-ext-enable redis xdebug</div></pre></td></tr></table></figure>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">FROM</span> php:<span class="number">5.6</span>-fpm</div><div class="line"><span class="keyword">RUN</span> apt-get update &amp;&amp; apt-get install -y libmemcached-dev zlib1g-dev \</div><div class="line">	&amp;&amp; pecl install memcached-2.2.0 \</div><div class="line">	&amp;&amp; docker-php-ext-enable memcached</div></pre></td></tr></table></figure>
-<h5 id="OTHER-EXTENSIONS"><a href="#OTHER-EXTENSIONS" class="headerlink" title="OTHER EXTENSIONS"></a>OTHER EXTENSIONS</h5><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">FROM</span> php:<span class="number">5.6</span>-apache</div><div class="line"><span class="keyword">RUN</span> curl -fsSL 'https://xcache.lighttpd.net/pub/Releases/3.2.0/xcache-3.2.0.tar.gz' -o xcache.tar.gz \</div><div class="line">    &amp;&amp; mkdir -p xcache \</div><div class="line">    &amp;&amp; tar -xf xcache.tar.gz -C xcache --strip-components=1 \</div><div class="line">    &amp;&amp; rm xcache.tar.gz \</div><div class="line">    &amp;&amp; ( \</div><div class="line">        cd xcache \</div><div class="line">        &amp;&amp; phpize \</div><div class="line">        &amp;&amp; ./configure --enable-xcache \</div><div class="line">        &amp;&amp; make -j$(nproc) \</div><div class="line">        &amp;&amp; make install \</div><div class="line">    ) \</div><div class="line">    &amp;&amp; rm -r xcache \</div><div class="line">    &amp;&amp; docker-php-ext-enable xcache</div></pre></td></tr></table></figure>]]></content>
+<h4 id="Docker中PHP环境安装扩展的方法："><a href="#Docker中PHP环境安装扩展的方法：" class="headerlink" title="Docker中PHP环境安装扩展的方法："></a>Docker中PHP环境安装扩展的方法：</h4><pre><code>docker-php-ext-install redis
+</code></pre><h5 id="PHP-CORE-EXTENSIONS"><a href="#PHP-CORE-EXTENSIONS" class="headerlink" title="PHP CORE EXTENSIONS"></a>PHP CORE EXTENSIONS</h5><pre><code>FROM php:7.0-fpm
+RUN apt-get update &amp;&amp; apt-get install -y \
+        libfreetype6-dev \
+        libjpeg62-turbo-dev \
+        libmcrypt-dev \
+        libpng-dev \
+    &amp;&amp; docker-php-ext-install -j$(nproc) iconv mcrypt \
+    &amp;&amp; docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
+    &amp;&amp; docker-php-ext-install -j$(nproc) gd
+</code></pre><h5 id="PECL-EXTENSIONS"><a href="#PECL-EXTENSIONS" class="headerlink" title="PECL EXTENSIONS"></a>PECL EXTENSIONS</h5><pre><code>FROM php:7.1-fpm
+RUN pecl install redis-3.1.0 \
+    &amp;&amp; pecl install xdebug-2.5.0 \
+    &amp;&amp; docker-php-ext-enable redis xdebug
+
+FROM php:5.6-fpm
+RUN apt-get update &amp;&amp; apt-get install -y libmemcached-dev zlib1g-dev \
+    &amp;&amp; pecl install memcached-2.2.0 \
+    &amp;&amp; docker-php-ext-enable memcached
+</code></pre><h5 id="OTHER-EXTENSIONS"><a href="#OTHER-EXTENSIONS" class="headerlink" title="OTHER EXTENSIONS"></a>OTHER EXTENSIONS</h5><pre><code>FROM php:5.6-apache
+RUN curl -fsSL &apos;https://xcache.lighttpd.net/pub/Releases/3.2.0/xcache-3.2.0.tar.gz&apos; -o xcache.tar.gz \
+    &amp;&amp; mkdir -p xcache \
+    &amp;&amp; tar -xf xcache.tar.gz -C xcache --strip-components=1 \
+    &amp;&amp; rm xcache.tar.gz \
+    &amp;&amp; ( \
+        cd xcache \
+        &amp;&amp; phpize \
+        &amp;&amp; ./configure --enable-xcache \
+        &amp;&amp; make -j$(nproc) \
+        &amp;&amp; make install \
+    ) \
+    &amp;&amp; rm -r xcache \
+    &amp;&amp; docker-php-ext-enable xcache
+</code></pre>]]></content>
       
         
         <tags>

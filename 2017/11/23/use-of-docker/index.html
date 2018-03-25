@@ -273,7 +273,7 @@ function IsPC() {
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Docker简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">Docker简介</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Docker组件"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Docker组件</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Docker相关教程"><span class="post-toc-number">2.</span> <span class="post-toc-text">Docker相关教程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Tips"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Tips</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#PHP-CORE-EXTENSIONS"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">PHP CORE EXTENSIONS</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#PECL-EXTENSIONS"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">PECL EXTENSIONS</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#OTHER-EXTENSIONS"><span class="post-toc-number">2.1.3.</span> <span class="post-toc-text">OTHER EXTENSIONS</span></a></li></ol></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Docker简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">Docker简介</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Docker组件"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Docker组件</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Docker相关教程"><span class="post-toc-number">2.</span> <span class="post-toc-text">Docker相关教程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Docker中PHP环境安装扩展的方法："><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Docker中PHP环境安装扩展的方法：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#PHP-CORE-EXTENSIONS"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">PHP CORE EXTENSIONS</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#PECL-EXTENSIONS"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">PECL EXTENSIONS</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#OTHER-EXTENSIONS"><span class="post-toc-number">2.1.3.</span> <span class="post-toc-text">OTHER EXTENSIONS</span></a></li></ol></li></ol></li></ol>
 
         <!--
         <li class="mdl-menu__item">
@@ -451,12 +451,40 @@ function IsPC() {
 <p><a href="https://blog.csdn.net/qq_36763896/article/details/53293088" target="_blank" rel="external">7 步精简 Docker 镜像几百MB</a></p>
 <p><a href="https://goaccess.io/download" target="_blank" rel="external">搭建nginx访问日志分析工具Goaccess</a></p>
 <p><a href="https://docs.docker.com/samples/library/php/" target="_blank" rel="external">Docker镜像源中PHP的方法</a></p>
-<h4 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h4><p>Docker中PHP环境安装扩展的方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker-php-ext-install redis</div></pre></td></tr></table></figure>
-<h5 id="PHP-CORE-EXTENSIONS"><a href="#PHP-CORE-EXTENSIONS" class="headerlink" title="PHP CORE EXTENSIONS"></a>PHP CORE EXTENSIONS</h5><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">FROM</span> php:<span class="number">7.0</span>-fpm</div><div class="line"><span class="keyword">RUN</span> apt-get update &amp;&amp; apt-get install -y \</div><div class="line">        libfreetype6-dev \</div><div class="line">        libjpeg62-turbo-dev \</div><div class="line">        libmcrypt-dev \</div><div class="line">        libpng-dev \</div><div class="line">    &amp;&amp; docker-php-ext-install -j$(nproc) iconv mcrypt \</div><div class="line">    &amp;&amp; docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \</div><div class="line">    &amp;&amp; docker-php-ext-install -j$(nproc) gd</div></pre></td></tr></table></figure>
-<h5 id="PECL-EXTENSIONS"><a href="#PECL-EXTENSIONS" class="headerlink" title="PECL EXTENSIONS"></a>PECL EXTENSIONS</h5><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">FROM</span> php:<span class="number">7.1</span>-fpm</div><div class="line"><span class="keyword">RUN</span> pecl install redis-3.1.0 \</div><div class="line">	&amp;&amp; pecl install xdebug-2.5.0 \</div><div class="line">	&amp;&amp; docker-php-ext-enable redis xdebug</div></pre></td></tr></table></figure>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">FROM</span> php:<span class="number">5.6</span>-fpm</div><div class="line"><span class="keyword">RUN</span> apt-get update &amp;&amp; apt-get install -y libmemcached-dev zlib1g-dev \</div><div class="line">	&amp;&amp; pecl install memcached-2.2.0 \</div><div class="line">	&amp;&amp; docker-php-ext-enable memcached</div></pre></td></tr></table></figure>
-<h5 id="OTHER-EXTENSIONS"><a href="#OTHER-EXTENSIONS" class="headerlink" title="OTHER EXTENSIONS"></a>OTHER EXTENSIONS</h5><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">FROM</span> php:<span class="number">5.6</span>-apache</div><div class="line"><span class="keyword">RUN</span> curl -fsSL 'https://xcache.lighttpd.net/pub/Releases/3.2.0/xcache-3.2.0.tar.gz' -o xcache.tar.gz \</div><div class="line">    &amp;&amp; mkdir -p xcache \</div><div class="line">    &amp;&amp; tar -xf xcache.tar.gz -C xcache --strip-components=1 \</div><div class="line">    &amp;&amp; rm xcache.tar.gz \</div><div class="line">    &amp;&amp; ( \</div><div class="line">        cd xcache \</div><div class="line">        &amp;&amp; phpize \</div><div class="line">        &amp;&amp; ./configure --enable-xcache \</div><div class="line">        &amp;&amp; make -j$(nproc) \</div><div class="line">        &amp;&amp; make install \</div><div class="line">    ) \</div><div class="line">    &amp;&amp; rm -r xcache \</div><div class="line">    &amp;&amp; docker-php-ext-enable xcache</div></pre></td></tr></table></figure>
+<h4 id="Docker中PHP环境安装扩展的方法："><a href="#Docker中PHP环境安装扩展的方法：" class="headerlink" title="Docker中PHP环境安装扩展的方法："></a>Docker中PHP环境安装扩展的方法：</h4><pre><code>docker-php-ext-install redis
+</code></pre><h5 id="PHP-CORE-EXTENSIONS"><a href="#PHP-CORE-EXTENSIONS" class="headerlink" title="PHP CORE EXTENSIONS"></a>PHP CORE EXTENSIONS</h5><pre><code>FROM php:7.0-fpm
+RUN apt-get update &amp;&amp; apt-get install -y \
+        libfreetype6-dev \
+        libjpeg62-turbo-dev \
+        libmcrypt-dev \
+        libpng-dev \
+    &amp;&amp; docker-php-ext-install -j$(nproc) iconv mcrypt \
+    &amp;&amp; docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
+    &amp;&amp; docker-php-ext-install -j$(nproc) gd
+</code></pre><h5 id="PECL-EXTENSIONS"><a href="#PECL-EXTENSIONS" class="headerlink" title="PECL EXTENSIONS"></a>PECL EXTENSIONS</h5><pre><code>FROM php:7.1-fpm
+RUN pecl install redis-3.1.0 \
+    &amp;&amp; pecl install xdebug-2.5.0 \
+    &amp;&amp; docker-php-ext-enable redis xdebug
+
+FROM php:5.6-fpm
+RUN apt-get update &amp;&amp; apt-get install -y libmemcached-dev zlib1g-dev \
+    &amp;&amp; pecl install memcached-2.2.0 \
+    &amp;&amp; docker-php-ext-enable memcached
+</code></pre><h5 id="OTHER-EXTENSIONS"><a href="#OTHER-EXTENSIONS" class="headerlink" title="OTHER EXTENSIONS"></a>OTHER EXTENSIONS</h5><pre><code>FROM php:5.6-apache
+RUN curl -fsSL &apos;https://xcache.lighttpd.net/pub/Releases/3.2.0/xcache-3.2.0.tar.gz&apos; -o xcache.tar.gz \
+    &amp;&amp; mkdir -p xcache \
+    &amp;&amp; tar -xf xcache.tar.gz -C xcache --strip-components=1 \
+    &amp;&amp; rm xcache.tar.gz \
+    &amp;&amp; ( \
+        cd xcache \
+        &amp;&amp; phpize \
+        &amp;&amp; ./configure --enable-xcache \
+        &amp;&amp; make -j$(nproc) \
+        &amp;&amp; make install \
+    ) \
+    &amp;&amp; rm -r xcache \
+    &amp;&amp; docker-php-ext-enable xcache
+</code></pre>
     
 
     
