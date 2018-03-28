@@ -37,13 +37,8 @@ print(result.text)
     &lt;navigatepage-nums&gt;8&lt;/navigatepage-nums&gt;
 &lt;/page-info&gt;
 </code></pre><p>发现并不是之前在浏览器中看到的JSON格式，而是xml格式的，所以可能是Header中没有指定接受json格式，所以添加一下Header：</p>
-<pre><code>import requests
-s = requests.Session()
-headers = {&apos;Accept&apos; : &apos;application/json;charset=utf-8&apos;}
-s.headers.update(headers)
-result = s.get(&apos;http://credit.gdlawyer.org.cn/front/indexFront/getLawyerOrOrgListData?time_=&amp;type=1&amp;title=&amp;city=0&amp;ognforms=0&amp;curpage=0&amp;limit=2&amp;_=1522140226962&apos;)
-print(result.text)
-</code></pre><p>加了一个Accept的Header就好了，返回结果如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> requests</div><div class="line"></div><div class="line">s = requests.Session()</div><div class="line">headers = &#123;<span class="string">'Accept'</span> : <span class="string">'application/json;charset=utf-8'</span>&#125;</div><div class="line">s.headers.update(headers)</div><div class="line">result = s.get(<span class="string">'http://credit.gdlawyer.org.cn/front/indexFront/getLawyerOrOrgListData?time_=&amp;type=1&amp;title=&amp;city=0&amp;ognforms=0&amp;curpage=0&amp;limit=2&amp;_=1522140226962'</span>)</div><div class="line">print(result.text)</div></pre></td></tr></table></figure>
+<p>加了一个Accept的Header就好了，返回结果如下：</p>
 <pre><code>{
     &quot;pageSize&quot;: 2,
     &quot;size&quot;: 2,
@@ -657,9 +652,9 @@ RUN curl -fsSL &apos;https://xcache.lighttpd.net/pub/Releases/3.2.0/xcache-3.2.0
         
         <tags>
             
-            <tag> skill </tag>
-            
             <tag> 容器 </tag>
+            
+            <tag> skill </tag>
             
             <tag> Docker </tag>
             
