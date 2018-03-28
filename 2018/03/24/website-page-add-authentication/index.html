@@ -438,7 +438,7 @@ function IsPC() {
                 <div id="post-content" class="mdl-color-text--grey-900 mdl-card__supporting-text fade out">
     
         <p>代码如下，在PHP中可直接使用</p>
-<pre><code>&lt;?php
+<pre><code class="php">&lt;?php
 /**
  * 给指定URL添加访问控制
  */
@@ -484,36 +484,36 @@ html;
  /*********** Solution One *********/
 
 $url = [
-    &apos;/20180328&apos;,
-    &apos;/20180329&apos;
+    &#39;/20180328&#39;,
+    &#39;/20180329&#39;
 ];
 $auth_name = [
-    &apos;live_auth0328&apos;,
-    &apos;live_auth0329&apos;,
+    &#39;live_auth0328&#39;,
+    &#39;live_auth0329&#39;,
 ];
 $auth_passwd = [
-    &apos;12345678&apos;,
-    &apos;123456&apos;,
+    &#39;12345678&#39;,
+    &#39;123456&#39;,
 ];
 
-$key = &apos;&apos;;
+$key = &#39;&#39;;
 if (!empty($_POST)) {
     // POST字段匹配
     $postDataKey = array_keys($_POST)[0];
     $key = array_search($postDataKey, $auth_name, true);
 }
 
-$path = parse_url( $_SERVER[&apos;REQUEST_URI&apos;] )[&apos;path&apos;];
+$path = parse_url( $_SERVER[&#39;REQUEST_URI&#39;] )[&#39;path&#39;];
 $key = $key ?: array_search( $path, $url, true);
 
-if ($key !== &apos;&apos; &amp;&amp; $key !== FALSE) {
+if ($key !== &#39;&#39; &amp;&amp; $key !== FALSE) {
     if (isset($_POST[$auth_name[$key]]) &amp;&amp; $_POST[$auth_name[$key]] === $auth_passwd[$key]) {
-        $_SESSION[$auth_name[$key]] = &apos;1&apos;;
+        $_SESSION[$auth_name[$key]] = &#39;1&#39;;
     }
     if ($path === $url[$key]) {
-        if (!isset($_SESSION[$auth_name[$key]]) || $_SESSION[$auth_name[$key]] !== &apos;1&apos;) {
-            $html = str_replace(&apos;live_auth&apos;, $auth_name[$key], $html);
-            $html = str_replace(&apos;live_url&apos;, $url[$key], $html);
+        if (!isset($_SESSION[$auth_name[$key]]) || $_SESSION[$auth_name[$key]] !== &#39;1&#39;) {
+            $html = str_replace(&#39;live_auth&#39;, $auth_name[$key], $html);
+            $html = str_replace(&#39;live_url&#39;, $url[$key], $html);
             echo $html;die;
         }
     }
@@ -522,36 +522,37 @@ if ($key !== &apos;&apos; &amp;&amp; $key !== FALSE) {
 /*********** Solution Two *********/
 /*
 //20180328
-$url = &apos;/20180328&apos;;
-$auth_name = &apos;live_auth0328&apos;;
-$auth_passwd = &apos;12345678&apos;;
+$url = &#39;/20180328&#39;;
+$auth_name = &#39;live_auth0328&#39;;
+$auth_passwd = &#39;12345678&#39;;
 if (isset($_POST[$auth_name]) &amp;&amp; $_POST[$auth_name] === $auth_passwd) {
-    $_SESSION[$auth_name] = &apos;1&apos;;
+    $_SESSION[$auth_name] = &#39;1&#39;;
 }
-if (parse_url( $_SERVER[&apos;REQUEST_URI&apos;] )[&apos;path&apos;] === $url) {
-    if (!isset($_SESSION[$auth_name]) || $_SESSION[$auth_name] !== &apos;1&apos;) {
-        $html = str_replace(&apos;live_auth&apos;, $auth_name, $html);
-        $html = str_replace(&apos;live_url&apos;, $url, $html);
+if (parse_url( $_SERVER[&#39;REQUEST_URI&#39;] )[&#39;path&#39;] === $url) {
+    if (!isset($_SESSION[$auth_name]) || $_SESSION[$auth_name] !== &#39;1&#39;) {
+        $html = str_replace(&#39;live_auth&#39;, $auth_name, $html);
+        $html = str_replace(&#39;live_url&#39;, $url, $html);
         echo $html;die;
     }
 }
 
 //20180329
-$url = &apos;/20180329&apos;;
-$auth_name = &apos;live_auth0329&apos;;
-$auth_passwd = &apos;123456&apos;;
+$url = &#39;/20180329&#39;;
+$auth_name = &#39;live_auth0329&#39;;
+$auth_passwd = &#39;123456&#39;;
 if (isset($_POST[$auth_name]) &amp;&amp; $_POST[$auth_name] === $auth_passwd) {
-    $_SESSION[$auth_name] = &apos;1&apos;;
+    $_SESSION[$auth_name] = &#39;1&#39;;
 }
-if (parse_url( $_SERVER[&apos;REQUEST_URI&apos;] )[&apos;path&apos;] === $url) {
-    if (!isset($_SESSION[$auth_name]) || $_SESSION[$auth_name] !== &apos;1&apos;) {
-        $html = str_replace(&apos;live_auth&apos;, $auth_name, $html);
-        $html = str_replace(&apos;live_url&apos;, $url, $html);
+if (parse_url( $_SERVER[&#39;REQUEST_URI&#39;] )[&#39;path&#39;] === $url) {
+    if (!isset($_SESSION[$auth_name]) || $_SESSION[$auth_name] !== &#39;1&#39;) {
+        $html = str_replace(&#39;live_auth&#39;, $auth_name, $html);
+        $html = str_replace(&#39;live_url&#39;, $url, $html);
         echo $html;die;
     }
 }
 */
 </code></pre>
+
     
 
     

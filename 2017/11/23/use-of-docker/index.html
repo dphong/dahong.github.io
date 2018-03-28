@@ -472,7 +472,7 @@ RUN apt-get update &amp;&amp; apt-get install -y libmemcached-dev zlib1g-dev \
     &amp;&amp; pecl install memcached-2.2.0 \
     &amp;&amp; docker-php-ext-enable memcached
 </code></pre><h5 id="OTHER-EXTENSIONS"><a href="#OTHER-EXTENSIONS" class="headerlink" title="OTHER EXTENSIONS"></a>OTHER EXTENSIONS</h5><pre><code>FROM php:5.6-apache
-RUN curl -fsSL &apos;https://xcache.lighttpd.net/pub/Releases/3.2.0/xcache-3.2.0.tar.gz&apos; -o xcache.tar.gz \
+RUN curl -fsSL &#39;https://xcache.lighttpd.net/pub/Releases/3.2.0/xcache-3.2.0.tar.gz&#39; -o xcache.tar.gz \
     &amp;&amp; mkdir -p xcache \
     &amp;&amp; tar -xf xcache.tar.gz -C xcache --strip-components=1 \
     &amp;&amp; rm xcache.tar.gz \

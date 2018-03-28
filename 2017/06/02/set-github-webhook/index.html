@@ -438,47 +438,47 @@ function IsPC() {
                 <div id="post-content" class="mdl-color-text--grey-900 mdl-card__supporting-text fade out">
     
         <p>转载自：<a href="https://www.jianshu.com/p/e4cacd775e5b" target="_blank" rel="external">利用Github的Webhook功能和Node.js完成项目的自动部署</a></p>
-<h3 id="首先完成Node-js服务器的代码构建，先上代码，再解释"><a href="#首先完成Node-js服务器的代码构建，先上代码，再解释" class="headerlink" title="首先完成Node.js服务器的代码构建，先上代码，再解释"></a>首先完成Node.js服务器的代码构建，先上代码，再解释</h3><pre><code>var http = require(&apos;http&apos;)
-var createHandler = require(&apos;github-webhook-handler&apos;)
-var handler = createHandler({ path: &apos;/&apos;, secret: &apos;root&apos; })
+<h3 id="首先完成Node-js服务器的代码构建，先上代码，再解释"><a href="#首先完成Node-js服务器的代码构建，先上代码，再解释" class="headerlink" title="首先完成Node.js服务器的代码构建，先上代码，再解释"></a>首先完成Node.js服务器的代码构建，先上代码，再解释</h3><pre><code>var http = require(&#39;http&#39;)
+var createHandler = require(&#39;github-webhook-handler&#39;)
+var handler = createHandler({ path: &#39;/&#39;, secret: &#39;root&#39; })
 // 上面的 secret 保持和 GitHub 后台设置的一致
 
 function run_cmd(cmd, args, callback) {
-  var spawn = require(&apos;child_process&apos;).spawn;
+  var spawn = require(&#39;child_process&#39;).spawn;
   var child = spawn(cmd, args);
   var resp = &quot;&quot;;
 
-  child.stdout.on(&apos;data&apos;, function(buffer) { resp += buffer.toString(); });
-  child.stdout.on(&apos;end&apos;, function() { callback (resp) });
+  child.stdout.on(&#39;data&#39;, function(buffer) { resp += buffer.toString(); });
+  child.stdout.on(&#39;end&#39;, function() { callback (resp) });
 }
 
 http.createServer(function (req, res) {
   handler(req, res, function (err) {
     res.statusCode = 404
-    res.end(&apos;no such location&apos;)
+    res.end(&#39;no such location&#39;)
   })
 }).listen(7777)
 
-handler.on(&apos;error&apos;, function (err) {
-  console.error(&apos;Error:&apos;, err.message)
+handler.on(&#39;error&#39;, function (err) {
+  console.error(&#39;Error:&#39;, err.message)
 })
 
-handler.on(&apos;push&apos;, function (event) {
-  console.log(&apos;Received a push event for %s to %s&apos;,
+handler.on(&#39;push&#39;, function (event) {
+  console.log(&#39;Received a push event for %s to %s&#39;,
     event.payload.repository.name,
     event.payload.ref);
-    run_cmd(&apos;sh&apos;, [&apos;./deploy.sh&apos;,event.payload.repository.name], function(text){ console.log(text) });
+    run_cmd(&#39;sh&#39;, [&#39;./deploy.sh&#39;,event.payload.repository.name], function(text){ console.log(text) });
 })
 </code></pre><p>上面的代码中用到了一个github-webhook-handler的中间件，你可以用 <strong>npm install -g github-webhook-handler</strong> 来全局安装。</p>
 <p>还有代码这行:</p>
-<pre><code>var handler = createHandler({ path: &apos;/&apos;, secret: &apos;root&apos; }) 
+<pre><code>var handler = createHandler({ path: &#39;/&#39;, secret: &#39;root&#39; }) 
 </code></pre><p>其中secret后的参数是你在github的项目中添加webhook时设置的secret值，替换成自己的就行了</p>
 <h3 id="完成deploy-sh脚本"><a href="#完成deploy-sh脚本" class="headerlink" title="完成deploy.sh脚本"></a>完成deploy.sh脚本</h3><p>deploy.sh脚本负责进入项目的目录，然后利用git命令拉取最新的代码，还是直接贴代码:</p>
 <pre><code>#!/bin/bash
 
-WEB_PATH=&apos;/root/tools/&apos;$1
-WEB_USER=&apos;root&apos;
-WEB_USERGROUP=&apos;root&apos;
+WEB_PATH=&#39;/root/tools/&#39;$1
+WEB_USER=&#39;root&#39;
+WEB_USERGROUP=&#39;root&#39;
 
 echo &quot;Start deployment&quot;
 cd $WEB_PATH

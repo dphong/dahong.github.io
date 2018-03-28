@@ -17,7 +17,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Whark">
     <meta name="description" content="Creating and enjoy my life.">
-    <meta name="keywords" content="Whark dphong whark.cn,skill,树莓派,IP">
+    <meta name="keywords" content="Whark dphong whark.cn,树莓派,skill,IP">
 
     <!--iOS -->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -40,7 +40,7 @@
     <meta property="og:type" content="blog">
     <meta property="og:title" content="为树莓派配置开机自动上传IP | Whark&#39;s Blog">
     <meta property="og:description" content="Creating and enjoy my life.">
-    <meta property="og:article:tag" content="skill"> <meta property="og:article:tag" content="树莓派"> <meta property="og:article:tag" content="IP"> 
+    <meta property="og:article:tag" content="树莓派"> <meta property="og:article:tag" content="skill"> <meta property="og:article:tag" content="IP"> 
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/css/ie-blocker.css">
@@ -443,17 +443,17 @@ function IsPC() {
 ip1=`curl -s ipecho.net/plain`
 
 #inside_ip
-ip2=`LC_ALL=C ifconfig|grep &quot;inet addr:&quot;|grep -v &quot;127.0.0.1&quot;| cut -d: -f2|awk &apos;{print $1}&apos;`
-ip3=`LC_ALL=C ifconfig|grep &quot;[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}&quot;|grep -v &quot;127.0.0.1&quot;|cut -d: -f2|awk &apos;{print $2}&apos;|head -n 1`
+ip2=`LC_ALL=C ifconfig|grep &quot;inet addr:&quot;|grep -v &quot;127.0.0.1&quot;| cut -d: -f2|awk &#39;{print $1}&#39;`
+ip3=`LC_ALL=C ifconfig|grep &quot;[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}&quot;|grep -v &quot;127.0.0.1&quot;|cut -d: -f2|awk &#39;{print $2}&#39;|head -n 1`
 if [ ! -n &quot;$ip2&quot; ];
 then
     ip2=$ip3
 fi
 
-url=&apos;ip.whark.cn&apos;
+url=&#39;ip.whark.cn&#39;
 
 #change your name
-name=&apos;test_ubuntu&apos;
+name=&#39;test_ubuntu&#39;
 
 while getopts :ha:o:i: OPTION
 do

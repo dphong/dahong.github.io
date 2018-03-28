@@ -445,8 +445,9 @@ git config --global user.email [email]
 <h5 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h5><pre><code>echo &quot;[credential]&quot; &gt;&gt; .git/config
 echo &quot;    helper = store&quot; &gt;&gt; .git/config
 </code></pre><h5 id="Windows-1"><a href="#Windows-1" class="headerlink" title="Windows"></a>Windows</h5><p>打开.git/config，在最后添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[credential]</div><div class="line">	helper = store</div></pre></td></tr></table></figure>
-<p>这样就可以保存用户名密码，不用每次都输入了！</p>
+<pre><code>[credential]
+    helper = store
+</code></pre><p>这样就可以保存用户名密码，不用每次都输入了！</p>
 <h3 id="使用Git"><a href="#使用Git" class="headerlink" title="使用Git"></a>使用Git</h3><h5 id="从远程库克隆"><a href="#从远程库克隆" class="headerlink" title="从远程库克隆"></a>从远程库克隆</h5><pre><code>git clone --depth=1 http://jdjks.hfnu.edu.cn/git/AnhuiIOT.git
 </code></pre><h5 id="暂存区、工作区管理"><a href="#暂存区、工作区管理" class="headerlink" title="暂存区、工作区管理"></a>暂存区、工作区管理</h5><pre><code>git add [file]                提交本次修改至暂存区
 git commit -m &quot;message&quot;        提交暂存区文件至版本库

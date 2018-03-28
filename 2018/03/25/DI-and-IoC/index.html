@@ -455,7 +455,7 @@ class Container
         if (is_callable($generator)) {
             self::$generator_list[$class_name] = $generator;
         } else {
-            throw new Exception(&apos;对象生成器不是可以调用的类型&apos;);
+            throw new Exception(&#39;对象生成器不是可以调用的类型&#39;);
         }
     }
 
@@ -463,7 +463,7 @@ class Container
     public static function make($class_name, $params = [])
     {
         if (! isset(self::$generator_list[$class_name])) {
-            throw new Exception($class_name.&apos;类没有被绑定注册&apos;);
+            throw new Exception($class_name.&#39;类没有被绑定注册&#39;);
         }
         return call_user_func_array(self::$generator_list[$class_name], $params);
     }
@@ -485,11 +485,11 @@ call_user_func_array(self::$generator_list[$class_name], $params);
 self::$generator_list[$class_name]对应的是类的生成器,$params对应的是类实例化所需要的参数，
 //call_user_func_array()该函数是PHP的内置函数，通过该函数我们可以执行self::$generator_list[$class_name]对应的是类的生成器函数，这样我们也就是完成了所需类的实例化。(ps：对call_user_func_array()函数不清楚的同学可以先去看一下手册)
 </code></pre><h4 id="测试一下"><a href="#测试一下" class="headerlink" title="测试一下"></a>测试一下</h4><pre><code>//将类A的生成器函数(匿名函数/闭包)绑定到容器中
-Container::bind(&apos;A&apos;, function($name=&apos;&apos;) {
+Container::bind(&#39;A&#39;, function($name=&#39;&#39;) {
     return new A($title);
 });
 //在容器类中获取类A的对象
-$Obj = Container::make(&apos;A&apos;, [&apos;aaa&apos;]);
+$Obj = Container::make(&#39;A&#39;, [&#39;aaa&#39;]);
 //打印出得到的这个对象
 var_dump($Obj);
 //打印结果如下:
@@ -511,18 +511,18 @@ array(1) {
 </code></pre><p>怎么样,看到上面打印出来的节后是不是就清楚一些了那…上面我们分析了一下容器类的具体的执行方式，上面的代码比较的简单，也灭有涉及到类相互依赖的问题，相比大家肯定想看一下类相互依赖的时候，容器类是怎么为我们解决依赖的，我们下面就写一个例子再分析一下，其实容器的代码我们基本不需要在动了。</p>
 <pre><code>//最开始的我们就举了一个B类依赖于A类的例子，现在我们继续使用这个例子来说明一下
 //绑定A类到容器中
-Container::bind(&apos;A&apos;, function($name=&apos;&apos;) {
+Container::bind(&#39;A&#39;, function($name=&#39;&#39;) {
     return new A($title);
 });
 //绑定B类到容器中
-Container::bind(&apos;B&apos;, function($module,$params=[]) {
+Container::bind(&#39;B&#39;, function($module,$params=[]) {
     return new B(Container::make($module,$params));
 });
 //上面B类的绑定方式大家可能觉得有点怪，这是因为B类依赖于A类,所以我们在B类的生成器对象中(匿名函数)中需要得到A类的实例传参给B，
 //怎么获取A类的实例那，简单，因为A类也存在于容器中，所以我们直接调用make()函数就可以获取A类的实例对象了，
 //但是在实例化A类的时候，构造函数可能需要参数，为了能够得到这些参数，我们就需要在B类的生成器对象中将这些参数传递进来。
 //下面我们调用一下B类
-$Obj= Container::make(&apos;B&apos;, [&apos;A&apos;, [&apos;aaa&apos;]]);
+$Obj= Container::make(&#39;B&#39;, [&#39;A&#39;, [&#39;aaa&#39;]]);
 //上面我们就获取到了B类的实例化的对象了，是不是很简单，有兴趣的同学可以将上面的结果打印出来看一下。
 //我们再分析一下上面的步骤，想要获取B类的实例化对象,直接通过make()进行获取,
 //因为B依赖于A，所以需要传递A到生成器函数中，但是A有需要其他的参数，所以我们还需要继续传递其他参数进去，所以参数就是一个二维数组
