@@ -53,6 +53,7 @@
     <!-- Import CSS -->
     <link rel="stylesheet" href="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/css/material.min.css">
     <link rel="stylesheet" href="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/css/style.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/darcula.min.css">
     <!-- Config CSS -->
 
 
@@ -96,21 +97,21 @@
   }
 
   .toTop {
-    background: #757575 !important;
+    background: #EEEEEE !important;
   }
 
   .material-layout .material-post>.material-nav,
   .material-layout .material-index>.material-nav,
   .material-nav a {
-    color: #757575;
+    color: #EEEEEE;
   }
 
   #scheme-Paradox .MD-burger-layer {
-    background-color: #757575;
+    background-color: #EEEEEE;
   }
 
   #scheme-Paradox #post-toc-trigger-btn {
-    color: #757575;
+    color: #EEEEEE;
   }
 
   .post-toc a:hover {
@@ -172,7 +173,7 @@ amiao.min.css?v=161022:9
 <script src="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/js/queue.js"></script>
 
 
-    
+
 
     <!-- UC Browser Compatible -->
     <script>
@@ -319,7 +320,7 @@ function IsPC() {
 
                 
                     <!-- Paradox Post Info -->
-                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+                    <div class="mdl-color-text--grey-900 mdl-card__supporting-text meta">
 
     <!-- Author Avatar -->
     <div id="author-avatar">
@@ -434,7 +435,7 @@ function IsPC() {
                 
 
                 <!-- Post Content -->
-                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+                <div id="post-content" class="mdl-color-text--grey-900 mdl-card__supporting-text fade out">
     
         <p>本文内容大部分参考自：<a href="https://juejin.im/post/590c63ad1b69e600683bf8ea" target="_blank" rel="external">对PHP框架中的容器的理解</a></p>
 <h4 id="PHP的容器-–-依赖注入-DI-和-控制反转-IoC"><a href="#PHP的容器-–-依赖注入-DI-和-控制反转-IoC" class="headerlink" title="PHP的容器 – 依赖注入(DI) 和 控制反转(IoC)"></a>PHP的容器 – 依赖注入(DI) 和 控制反转(IoC)</h4><h5 id="DI-Dependency-Injection-依赖注入"><a href="#DI-Dependency-Injection-依赖注入" class="headerlink" title="DI  - Dependency Injection  依赖注入"></a>DI  - Dependency Injection  依赖注入</h5><h5 id="IoC-Inversion-of-Control-控制反转"><a href="#IoC-Inversion-of-Control-控制反转" class="headerlink" title="IoC - Inversion of Control  控制反转"></a>IoC - Inversion of Control  控制反转</h5><p>依赖注入和控制反转是对同一件事情的不同描述，从某个方面讲，就是它们描述的角度不同。</p>
@@ -825,6 +826,9 @@ $Obj= Container::make(&apos;B&apos;, [&apos;A&apos;, [&apos;aaa&apos;]]);
                     <!-- Import File -->
 <script src="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/js/lazyload.min.js"></script>
 <script src="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/js/js.min.js"></script>
+
+<!-- 代码高亮js -->
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 <script src="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/js/nprogress.js"></script>
 
 <script type="text/javascript">
@@ -979,9 +983,10 @@ $Obj= Container::make(&apos;B&apos;, [&apos;A&apos;, [&apos;aaa&apos;]]);
     });
 </script>
 
+<!-- 代码高亮 -->
+<script >hljs.initHighlightingOnLoad();</script>
+
 <!-- MathJax Load-->
-
-
 
 
                 </main>

@@ -53,6 +53,7 @@
     <!-- Import CSS -->
     <link rel="stylesheet" href="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/css/material.min.css">
     <link rel="stylesheet" href="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/css/style.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/darcula.min.css">
     <!-- Config CSS -->
 
 
@@ -96,21 +97,21 @@
   }
 
   .toTop {
-    background: #757575 !important;
+    background: #EEEEEE !important;
   }
 
   .material-layout .material-post>.material-nav,
   .material-layout .material-index>.material-nav,
   .material-nav a {
-    color: #757575;
+    color: #EEEEEE;
   }
 
   #scheme-Paradox .MD-burger-layer {
-    background-color: #757575;
+    background-color: #EEEEEE;
   }
 
   #scheme-Paradox #post-toc-trigger-btn {
-    color: #757575;
+    color: #EEEEEE;
   }
 
   .post-toc a:hover {
@@ -172,7 +173,7 @@ amiao.min.css?v=161022:9
 <script src="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/js/queue.js"></script>
 
 
-    
+
 
     <!-- UC Browser Compatible -->
     <script>
@@ -319,7 +320,7 @@ function IsPC() {
 
                 
                     <!-- Paradox Post Info -->
-                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+                    <div class="mdl-color-text--grey-900 mdl-card__supporting-text meta">
 
     <!-- Author Avatar -->
     <div id="author-avatar">
@@ -434,7 +435,7 @@ function IsPC() {
                 
 
                 <!-- Post Content -->
-                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+                <div id="post-content" class="mdl-color-text--grey-900 mdl-card__supporting-text fade out">
     
         <h2 id="更换国内镜像源"><a href="#更换国内镜像源" class="headerlink" title="更换国内镜像源"></a>更换国内镜像源</h2><p>很多教程没有写完整，更换源需要修改两个文件。<br>经过我的测试，发现两个文件分别使用阿里和中科大的效果最好。</p>
 <h5 id="source-list"><a href="#source-list" class="headerlink" title="source.list"></a>source.list</h5><pre><code>sudo nano /etc/apt/sources.list
@@ -773,6 +774,9 @@ wpa-psk Your_Wifi_Password
                     <!-- Import File -->
 <script src="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/js/lazyload.min.js"></script>
 <script src="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/js/js.min.js"></script>
+
+<!-- 代码高亮js -->
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 <script src="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/js/nprogress.js"></script>
 
 <script type="text/javascript">
@@ -927,9 +931,10 @@ wpa-psk Your_Wifi_Password
     });
 </script>
 
+<!-- 代码高亮 -->
+<script >hljs.initHighlightingOnLoad();</script>
+
 <!-- MathJax Load-->
-
-
 
 
                 </main>

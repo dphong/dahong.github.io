@@ -53,6 +53,7 @@
     <!-- Import CSS -->
     <link rel="stylesheet" href="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/css/material.min.css">
     <link rel="stylesheet" href="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/css/style.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/darcula.min.css">
     <!-- Config CSS -->
 
 
@@ -96,21 +97,21 @@
   }
 
   .toTop {
-    background: #757575 !important;
+    background: #EEEEEE !important;
   }
 
   .material-layout .material-post>.material-nav,
   .material-layout .material-index>.material-nav,
   .material-nav a {
-    color: #757575;
+    color: #EEEEEE;
   }
 
   #scheme-Paradox .MD-burger-layer {
-    background-color: #757575;
+    background-color: #EEEEEE;
   }
 
   #scheme-Paradox #post-toc-trigger-btn {
-    color: #757575;
+    color: #EEEEEE;
   }
 
   .post-toc a:hover {
@@ -172,7 +173,7 @@ amiao.min.css?v=161022:9
 <script src="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/js/queue.js"></script>
 
 
-    
+
 
     <!-- UC Browser Compatible -->
     <script>
@@ -284,7 +285,7 @@ function IsPC() {
 
                 
                     <!-- Paradox Post Info -->
-                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+                    <div class="mdl-color-text--grey-900 mdl-card__supporting-text meta">
 
     <!-- Author Avatar -->
     <div id="author-avatar">
@@ -399,7 +400,7 @@ function IsPC() {
                 
 
                 <!-- Post Content -->
-                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+                <div id="post-content" class="mdl-color-text--grey-900 mdl-card__supporting-text fade out">
     
         <h3 id="关于本博客"><a href="#关于本博客" class="headerlink" title="关于本博客"></a>关于本博客</h3><p>本博客使用 <a href="http://hexo.io" target="_blank" rel="external">Hexo</a> 搭建 , 大背景图来自 <a href="https://unsplash.com" target="_blank" rel="external">unsplash</a> , 版权归原作者所有，侵删。标题的小背景图是我自己游玩时拍摄的，图片都经过了压缩和裁剪。如果想要原图可以联系我。</p>
 <h3 id="关于我本人"><a href="#关于我本人" class="headerlink" title="关于我本人"></a>关于我本人</h3><ul>
@@ -690,6 +691,9 @@ function IsPC() {
                     <!-- Import File -->
 <script src="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/js/lazyload.min.js"></script>
 <script src="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/js/js.min.js"></script>
+
+<!-- 代码高亮js -->
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 <script src="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/js/nprogress.js"></script>
 
 <script type="text/javascript">
@@ -844,9 +848,10 @@ function IsPC() {
     });
 </script>
 
+<!-- 代码高亮 -->
+<script >hljs.initHighlightingOnLoad();</script>
+
 <!-- MathJax Load-->
-
-
 
 
                 </main>

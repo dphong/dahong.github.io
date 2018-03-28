@@ -53,6 +53,7 @@
     <!-- Import CSS -->
     <link rel="stylesheet" href="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/css/material.min.css">
     <link rel="stylesheet" href="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/css/style.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/darcula.min.css">
     <!-- Config CSS -->
 
 
@@ -96,21 +97,21 @@
   }
 
   .toTop {
-    background: #757575 !important;
+    background: #EEEEEE !important;
   }
 
   .material-layout .material-post>.material-nav,
   .material-layout .material-index>.material-nav,
   .material-nav a {
-    color: #757575;
+    color: #EEEEEE;
   }
 
   #scheme-Paradox .MD-burger-layer {
-    background-color: #757575;
+    background-color: #EEEEEE;
   }
 
   #scheme-Paradox #post-toc-trigger-btn {
-    color: #757575;
+    color: #EEEEEE;
   }
 
   .post-toc a:hover {
@@ -172,7 +173,7 @@ amiao.min.css?v=161022:9
 <script src="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/js/queue.js"></script>
 
 
-    
+
 
     <!-- UC Browser Compatible -->
     <script>
@@ -274,7 +275,7 @@ function IsPC() {
     </div>
 
     <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+    <div class="mdl-color-text--grey-800 mdl-card__supporting-text post_entry-content">
         
             本文以律师行业信用服务平台为例，介绍如何对页面数据进行提取，保存。
 开始：页面数据分析
@@ -286,7 +287,7 @@ function IsPC() {
     </div>
     <!-- Post_entry Info-->
     <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-800 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
                 <img src="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/image/avatar.jpg" width="44px" height="44px" alt="Whark's avatar">
@@ -332,7 +333,7 @@ function IsPC() {
     </div>
 
     <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+    <div class="mdl-color-text--grey-800 mdl-card__supporting-text post_entry-content">
         
             本文内容大部分参考自：对PHP框架中的容器的理解
 
@@ -344,7 +345,7 @@ function IsPC() {
     </div>
     <!-- Post_entry Info-->
     <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-800 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
                 <img src="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/image/avatar.jpg" width="44px" height="44px" alt="Whark's avatar">
@@ -390,10 +391,17 @@ function IsPC() {
     </div>
 
     <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+    <div class="mdl-color-text--grey-800 mdl-card__supporting-text post_entry-content">
         
             代码如下，在PHP中可直接使用
-12
+&lt;?php
+/**
+ * 给指定URL添加访问控制
+ */
+error_reporting(0);
+session_start();
+$html = &lt;&lt;&lt;html
+&lt;!DOC...
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -402,7 +410,7 @@ function IsPC() {
     </div>
     <!-- Post_entry Info-->
     <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-800 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
                 <img src="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/image/avatar.jpg" width="44px" height="44px" alt="Whark's avatar">
@@ -448,7 +456,7 @@ function IsPC() {
     </div>
 
     <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+    <div class="mdl-color-text--grey-800 mdl-card__supporting-text post_entry-content">
         
             Windows常用小技巧
         
@@ -459,7 +467,7 @@ function IsPC() {
     </div>
     <!-- Post_entry Info-->
     <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-800 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
                 <img src="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/image/avatar.jpg" width="44px" height="44px" alt="Whark's avatar">
@@ -505,7 +513,7 @@ function IsPC() {
     </div>
 
     <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+    <div class="mdl-color-text--grey-800 mdl-card__supporting-text post_entry-content">
         
             Docker简介Docker可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布...
         
@@ -516,7 +524,7 @@ function IsPC() {
     </div>
     <!-- Post_entry Info-->
     <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-800 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
                 <img src="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/image/avatar.jpg" width="44px" height="44px" alt="Whark's avatar">
@@ -562,7 +570,7 @@ function IsPC() {
     </div>
 
     <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+    <div class="mdl-color-text--grey-800 mdl-card__supporting-text post_entry-content">
         
             更换国内镜像源很多教程没有写完整，更换源需要修改两个文件。经过我的测试，发现两个文件分别使用阿里和中...
         
@@ -573,7 +581,7 @@ function IsPC() {
     </div>
     <!-- Post_entry Info-->
     <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-800 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
                 <img src="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/image/avatar.jpg" width="44px" height="44px" alt="Whark's avatar">
@@ -619,7 +627,7 @@ function IsPC() {
     </div>
 
     <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+    <div class="mdl-color-text--grey-800 mdl-card__supporting-text post_entry-content">
         
             转载自：利用Github的Webhook功能和Node.js完成项目的自动部署
 
@@ -631,7 +639,7 @@ function IsPC() {
     </div>
     <!-- Post_entry Info-->
     <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-800 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
                 <img src="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/image/avatar.jpg" width="44px" height="44px" alt="Whark's avatar">
@@ -677,7 +685,7 @@ function IsPC() {
     </div>
 
     <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+    <div class="mdl-color-text--grey-800 mdl-card__supporting-text post_entry-content">
         
             查询IP并上传IP
         
@@ -688,7 +696,7 @@ function IsPC() {
     </div>
     <!-- Post_entry Info-->
     <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-800 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
                 <img src="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/image/avatar.jpg" width="44px" height="44px" alt="Whark's avatar">
@@ -734,7 +742,7 @@ function IsPC() {
     </div>
 
     <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+    <div class="mdl-color-text--grey-800 mdl-card__supporting-text post_entry-content">
         
             本文介绍3种检测远程端口方式，telnet、nmap和nc。如果Linux提示找不到命令，请用apt-get或者yum安装。
 
@@ -746,7 +754,7 @@ function IsPC() {
     </div>
     <!-- Post_entry Info-->
     <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-800 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
                 <img src="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/image/avatar.jpg" width="44px" height="44px" alt="Whark's avatar">
@@ -792,7 +800,7 @@ function IsPC() {
     </div>
 
     <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+    <div class="mdl-color-text--grey-800 mdl-card__supporting-text post_entry-content">
         
             下载Git
         
@@ -803,7 +811,7 @@ function IsPC() {
     </div>
     <!-- Post_entry Info-->
     <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-800 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
                 <img src="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/image/avatar.jpg" width="44px" height="44px" alt="Whark's avatar">
@@ -1105,6 +1113,9 @@ function IsPC() {
                     <!-- Import File -->
 <script src="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/js/lazyload.min.js"></script>
 <script src="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/js/js.min.js"></script>
+
+<!-- 代码高亮js -->
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 <script src="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/js/nprogress.js"></script>
 
 <script type="text/javascript">
@@ -1259,9 +1270,10 @@ function IsPC() {
     });
 </script>
 
+<!-- 代码高亮 -->
+<script >hljs.initHighlightingOnLoad();</script>
+
 <!-- MathJax Load-->
-
-
 
 
                 </main>

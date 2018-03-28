@@ -53,6 +53,7 @@
     <!-- Import CSS -->
     <link rel="stylesheet" href="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/css/material.min.css">
     <link rel="stylesheet" href="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/css/style.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/darcula.min.css">
     <!-- Config CSS -->
 
 
@@ -96,21 +97,21 @@
   }
 
   .toTop {
-    background: #757575 !important;
+    background: #EEEEEE !important;
   }
 
   .material-layout .material-post>.material-nav,
   .material-layout .material-index>.material-nav,
   .material-nav a {
-    color: #757575;
+    color: #EEEEEE;
   }
 
   #scheme-Paradox .MD-burger-layer {
-    background-color: #757575;
+    background-color: #EEEEEE;
   }
 
   #scheme-Paradox #post-toc-trigger-btn {
-    color: #757575;
+    color: #EEEEEE;
   }
 
   .post-toc a:hover {
@@ -172,7 +173,7 @@ amiao.min.css?v=161022:9
 <script src="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/js/queue.js"></script>
 
 
-    
+
 
     <!-- UC Browser Compatible -->
     <script>
@@ -274,7 +275,7 @@ function IsPC() {
     </div>
 
     <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+    <div class="mdl-color-text--grey-800 mdl-card__supporting-text post_entry-content">
         
             1.进入CMD命令行模式按 win+r ，在弹出的运行框中输入cmd，回车。
         
@@ -285,7 +286,7 @@ function IsPC() {
     </div>
     <!-- Post_entry Info-->
     <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-800 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
                 <img src="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/image/avatar.jpg" width="44px" height="44px" alt="Whark's avatar">
@@ -582,6 +583,9 @@ function IsPC() {
                     <!-- Import File -->
 <script src="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/js/lazyload.min.js"></script>
 <script src="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/js/js.min.js"></script>
+
+<!-- 代码高亮js -->
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 <script src="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/js/nprogress.js"></script>
 
 <script type="text/javascript">
@@ -736,9 +740,10 @@ function IsPC() {
     });
 </script>
 
+<!-- 代码高亮 -->
+<script >hljs.initHighlightingOnLoad();</script>
+
 <!-- MathJax Load-->
-
-
 
 
                 </main>
