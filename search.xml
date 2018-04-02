@@ -526,9 +526,9 @@ if (parse_url( $_SERVER[&#39;REQUEST_URI&#39;] )[&#39;path&#39;] === $url) {
         
         <tags>
             
-            <tag> PHP </tag>
-            
             <tag> website </tag>
+            
+            <tag> PHP </tag>
             
             <tag> 访问控制 </tag>
             
@@ -666,9 +666,9 @@ RUN curl -fsSL &#39;https://xcache.lighttpd.net/pub/Releases/3.2.0/xcache-3.2.0.
         
         <tags>
             
-            <tag> 容器 </tag>
-            
             <tag> skill </tag>
+            
+            <tag> 容器 </tag>
             
             <tag> Docker </tag>
             
