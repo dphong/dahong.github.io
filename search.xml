@@ -725,9 +725,9 @@ wpa-psk Your_Wifi_Password
         
         <tags>
             
-            <tag> 树莓派 </tag>
-            
             <tag> skill </tag>
+            
+            <tag> 树莓派 </tag>
             
             <tag> source </tag>
             
@@ -894,11 +894,11 @@ fi
         
         <tags>
             
+            <tag> skill </tag>
+            
             <tag> 树莓派 </tag>
             
             <tag> IP </tag>
-            
-            <tag> skill </tag>
             
         </tags>
         
@@ -1122,11 +1122,11 @@ git log --graph --pretty=oneline --abbrev-commit    查看分支合并情况
         
         <tags>
             
-            <tag> skill </tag>
-            
             <tag> 批处理 </tag>
             
             <tag> Excel </tag>
+            
+            <tag> skill </tag>
             
         </tags>
         
