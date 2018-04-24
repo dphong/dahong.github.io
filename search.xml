@@ -666,9 +666,9 @@ RUN curl -fsSL &#39;https://xcache.lighttpd.net/pub/Releases/3.2.0/xcache-3.2.0.
         
         <tags>
             
-            <tag> skill </tag>
-            
             <tag> 容器 </tag>
+            
+            <tag> skill </tag>
             
             <tag> Docker </tag>
             
