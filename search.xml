@@ -666,9 +666,9 @@ RUN curl -fsSL &#39;https://xcache.lighttpd.net/pub/Releases/3.2.0/xcache-3.2.0.
         
         <tags>
             
-            <tag> 容器 </tag>
-            
             <tag> skill </tag>
+            
+            <tag> 容器 </tag>
             
             <tag> Docker </tag>
             
@@ -725,9 +725,9 @@ wpa-psk Your_Wifi_Password
         
         <tags>
             
-            <tag> skill </tag>
-            
             <tag> 树莓派 </tag>
+            
+            <tag> skill </tag>
             
             <tag> source </tag>
             
@@ -894,11 +894,11 @@ fi
         
         <tags>
             
-            <tag> skill </tag>
-            
             <tag> 树莓派 </tag>
             
             <tag> IP </tag>
+            
+            <tag> skill </tag>
             
         </tags>
         
@@ -1122,11 +1122,11 @@ git log --graph --pretty=oneline --abbrev-commit    查看分支合并情况
         
         <tags>
             
+            <tag> skill </tag>
+            
             <tag> 批处理 </tag>
             
             <tag> Excel </tag>
-            
-            <tag> skill </tag>
             
         </tags>
         
