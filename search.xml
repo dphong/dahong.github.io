@@ -666,9 +666,9 @@ RUN curl -fsSL &#39;https://xcache.lighttpd.net/pub/Releases/3.2.0/xcache-3.2.0.
         
         <tags>
             
-            <tag> 容器 </tag>
-            
             <tag> skill </tag>
+            
+            <tag> 容器 </tag>
             
             <tag> Docker </tag>
             
@@ -725,9 +725,9 @@ wpa-psk Your_Wifi_Password
         
         <tags>
             
-            <tag> skill </tag>
-            
             <tag> 树莓派 </tag>
+            
+            <tag> skill </tag>
             
             <tag> source </tag>
             
@@ -894,11 +894,11 @@ fi
         
         <tags>
             
-            <tag> skill </tag>
-            
             <tag> 树莓派 </tag>
             
             <tag> IP </tag>
+            
+            <tag> skill </tag>
             
         </tags>
         
@@ -922,11 +922,11 @@ nmap ip
         
         <tags>
             
+            <tag> skill </tag>
+            
             <tag> Linux </tag>
             
             <tag> 端口扫描 </tag>
-            
-            <tag> skill </tag>
             
         </tags>
         
@@ -1027,11 +1027,11 @@ git log --graph --pretty=oneline --abbrev-commit    查看分支合并情况
         
         <tags>
             
-            <tag> life </tag>
-            
             <tag> 牛客 </tag>
             
             <tag> 程序猿 </tag>
+            
+            <tag> life </tag>
             
         </tags>
         
