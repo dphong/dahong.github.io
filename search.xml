@@ -4,6 +4,94 @@
   
     
     <entry>
+      <title></title>
+      <url>https://whark.cn/2019/02/24/interview-experience-jjb/</url>
+      <content type="html"><![CDATA[<p>简历处理很快，放假投递的，第一个工作日就收到面试邀请了，一面面试官很年轻，也很有技术范，聊的很开心，有些问题没有想出来，面试官引导的非常好，思维很活跃，很希望能一起共事，二面面试官问的问题都比较笼统，不是很具体，回答的时候我自己也没有问清楚具体应用场景，没有答到点上，经验也比较少，所有毫无悬念的挂了，但两位面试官脾气都很好，面试过程中收获很多，十分感谢，有一些没有回答出来，或者回答不够好的问题，予以记录：</p>
+<ol>
+<li>我使用的Token是如何保障信息安全的，使用的对称加密还是非对称加密，如果我离职了，知道Token的生成算法，能不能随意构造用户Token，为什么使用Token而不使用Session？</li>
+<li>有没有用过MQ，知不知道RPC，还用过哪些消息队列，知不知道Redis的垃圾回收机制，那PHP的呢，如果是常驻进程呢？</li>
+<li>Nginx和PHP之间是怎么工作的，Nginx的负载均衡有哪些常用算法和用法，Nginx的负载均衡是几层代理？</li>
+<li>数据库的事务隔离级别有哪些，有用到过哪些？怎么解决并发读脏数据的问题？</li>
+<li>使用git进行版本控制时，团队有哪些使用规范？如果自己的提交被冲掉了，如果恢复，是合并后发布还是发布后合并，如果发布了，有bug如果解决，分支该如何管理？</li>
+<li>Symfony框架和ThinkPHP框架有哪些区别和共同点，模板引擎有哪些，模板引擎是如何工作的，谈谈Symfony的依赖注入？</li>
+</ol>
+<h5 id="1-我使用的Token是如何保障信息安全的，使用的对称加密还是非对称加密，如果我离职了，知道Token的生成算法，能不能随意构造用户Token，为什么使用Token而不使用Session？"><a href="#1-我使用的Token是如何保障信息安全的，使用的对称加密还是非对称加密，如果我离职了，知道Token的生成算法，能不能随意构造用户Token，为什么使用Token而不使用Session？" class="headerlink" title="1. 我使用的Token是如何保障信息安全的，使用的对称加密还是非对称加密，如果我离职了，知道Token的生成算法，能不能随意构造用户Token，为什么使用Token而不使用Session？"></a>1. 我使用的Token是如何保障信息安全的，使用的对称加密还是非对称加密，如果我离职了，知道Token的生成算法，能不能随意构造用户Token，为什么使用Token而不使用Session？</h5><h5 id="2-有没有用过MQ，知不知道RPC，还用过哪些消息队列，知不知道Redis的垃圾回收机制，那PHP的呢，如果是常驻进程呢？"><a href="#2-有没有用过MQ，知不知道RPC，还用过哪些消息队列，知不知道Redis的垃圾回收机制，那PHP的呢，如果是常驻进程呢？" class="headerlink" title="2. 有没有用过MQ，知不知道RPC，还用过哪些消息队列，知不知道Redis的垃圾回收机制，那PHP的呢，如果是常驻进程呢？"></a>2. 有没有用过MQ，知不知道RPC，还用过哪些消息队列，知不知道Redis的垃圾回收机制，那PHP的呢，如果是常驻进程呢？</h5><blockquote>
+<p>MQ - 消息队列（Message Queue），队列结构的中间件，消息放入后，不需要立即处理，由订阅者/消费者按顺序处理，一般的应用场景：流量削峰、排序保证、解耦、异步通信、扩展性。</p>
+</blockquote>
+<blockquote>
+<p>RPC - 远程过程调用（Remote Procedure Call），通过网络从远程计算机上请求服务。</p>
+</blockquote>
+<p>两者的异同：</p>
+<pre><code>RPC系统结构：
++----------+     +----------+
+| Consumer | &lt;=&gt; | Provider |
++----------+     +----------+
+Consumer调用的Provider提供的服务。
+
+Message Queue系统结构：
++--------+     +-------+     +----------+
+| Sender | &lt;=&gt; | Queue | &lt;=&gt; | Receiver |
++--------+     +-------+     +----------+
+Sender发送消息给Queue；Receiver从Queue拿到消息来处理。
+</code></pre><table>
+<thead>
+<tr>
+<th style="text-align:center">RPC</th>
+<th style="text-align:center">MQ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">请求响应模式</td>
+<td style="text-align:center">生产者消费者模式</td>
+</tr>
+<tr>
+<td style="text-align:center">同步（也可以异步）</td>
+<td style="text-align:center">异步</td>
+</tr>
+<tr>
+<td style="text-align:center">面向动作</td>
+<td style="text-align:center">面向数据</td>
+</tr>
+<tr>
+<td style="text-align:center">无存储</td>
+<td style="text-align:center">有存储</td>
+</tr>
+<tr>
+<td style="text-align:center">解耦</td>
+<td style="text-align:center">解耦</td>
+</tr>
+</tbody>
+</table>
+<p>常见的消息队列： MQ、Redis 、MySQL</p>
+<p>消息队列触发机制：死循环、定时任务、守护进程（类似于PHP-FPM）</p>
+<h5 id="Redis内存回收"><a href="#Redis内存回收" class="headerlink" title="Redis内存回收"></a>Redis内存回收</h5><p>引用计数算法</p>
+<blockquote>
+<p>在创建一个新对象时， 引用计数的值会被初始化为 1 ；<br>当对象被一个新程序使用时， 它的引用计数值会被增一；<br>当对象不再被一个程序使用时， 它的引用计数值会被减一；<br>当对象的引用计数值变为 0 时， 对象所占用的内存会被释放。</p>
+</blockquote>
+<p>LRU算法<br>数据结构： <strong>HashMap + Double LinkedList</strong>，时间复杂度O(1)<br>当内存达到MAX_MEMORY上限时会触发响应的溢出控制策略，Redis支持以下6种策略</p>
+<blockquote>
+<p>noeviction：默认策略，不会删除任何数据，拒绝所有写入操作并返回客户端错误信息，此时Redis只响应读操作。<br>volatitle-rlu：根据LRU算法删除设置了超时属性的键，知道腾出足够空间为止。如果没有可删除的键对象，回退到noeviction策略。<br>allkeys-lru：根据LRU算法删除键，不管数据有没有设置超时属性，直到腾出足够空间为止。<br>allkeys-random：随机删除所有键，知道腾出足够空间为止。<br>volatitle-random：随机删除过期键，知道腾出足够空间为止。<br>volatitle-ttl：根据键值对象的ttl属性，删除最近将要过期数据。如果没有，回退到noeviction策略</p>
+</blockquote>
+<h5 id="PHP内存回收"><a href="#PHP内存回收" class="headerlink" title="PHP内存回收"></a>PHP内存回收</h5><p>也是引用计数算法</p>
+<h5 id="3-Nginx和PHP之间是怎么工作的，Nginx的负载均衡有哪些常用算法和用法，Nginx的负载均衡是几层代理？"><a href="#3-Nginx和PHP之间是怎么工作的，Nginx的负载均衡有哪些常用算法和用法，Nginx的负载均衡是几层代理？" class="headerlink" title="3. Nginx和PHP之间是怎么工作的，Nginx的负载均衡有哪些常用算法和用法，Nginx的负载均衡是几层代理？"></a>3. Nginx和PHP之间是怎么工作的，Nginx的负载均衡有哪些常用算法和用法，Nginx的负载均衡是几层代理？</h5><h5 id="Nginx和PHP之间是怎么工作的："><a href="#Nginx和PHP之间是怎么工作的：" class="headerlink" title="Nginx和PHP之间是怎么工作的："></a>Nginx和PHP之间是怎么工作的：</h5><blockquote>
+<p>CGI（Common Gateway Interface）协议 和 FastCGI协议，是Web Server与后台语言交互的协议，通过这个协议，开发者可以使用任何语言处理Web Server发来的请求。<br>FPM（FastCGI Process Manager），它是FastCGI的实现，是一个进程管理器，包含master进程和worker两种进程。master进程只有一个，负责监听端口，接受来自Web Server的请求，而worker进程一般有多个，每个进程内部都嵌入了一个PHP解释器，是PHP代码真正执行的地方。</p>
+</blockquote>
+<p>Nginx负责监听网站的80端口，然后将所有以.php结尾的请求都交给FastCGI模块处理，从而把所有PHP的请求都交给fpm处理，再把处理结果通过nginx返回给客户端。</p>
+<h5 id="Nginx负载均衡常用算法："><a href="#Nginx负载均衡常用算法：" class="headerlink" title="Nginx负载均衡常用算法："></a>Nginx负载均衡常用算法：</h5><ol>
+<li>轮询（默认）：每个请求按时间顺序逐一分配到不同的后端服务器，如果后端某台服务器宕机，则自动剔除故障机器，使用户访问不受影响。</li>
+<li>weight：指定轮询权重，weight值越大，分配到的几率就越高，主要用于后端每台服务器性能不均衡的情况。</li>
+<li>ip_hash：每个请求按访问IP的哈希结果分配，这样每个访客固定访问一个后端服务器，可以有效的解决动态网页存在的session共享问题。</li>
+<li>fair（第三方）：更智能的一个负载均衡算法，此算法可以根据页面大小和加载时间长短智能地进行负载均衡，也就是根据后端服务器的响应时间来分配请求，响应时间短的优先分配。如果想要使用此调度算法，需要Nginx的upstream_fair模块。</li>
+<li>url_hash（第三方）：按访问URL的哈希结果来分配请求，使每个URL定向到同一台后端服务器，可以进一步提高后端缓存服务器的效率。如果想要使用此调度算法，需要Nginx的hash软件包。</li>
+</ol>
+<h5 id="Nginx的负载均衡是几层代理："><a href="#Nginx的负载均衡是几层代理：" class="headerlink" title="Nginx的负载均衡是几层代理："></a>Nginx的负载均衡是几层代理：</h5><p>负载均衡器通常称为四层交换机或七层交换机。四层交换机主要分析IP层及TCP/UDP层，实现四层流量负载均衡。七层交换机除了支持四层负载均衡以外，还有分析应用层的信息，如HTTP协议URI或Cookie信息。<br>Nginx工作在七层代理，可以针对HTTP应用本身来做分流策略，比如针对域名、目录结构等。</p>
+<h5 id="4-数据库的事务隔离级别有哪些，有用到过哪些？怎么解决并发读脏数据的问题？"><a href="#4-数据库的事务隔离级别有哪些，有用到过哪些？怎么解决并发读脏数据的问题？" class="headerlink" title="4.数据库的事务隔离级别有哪些，有用到过哪些？怎么解决并发读脏数据的问题？"></a>4.数据库的事务隔离级别有哪些，有用到过哪些？怎么解决并发读脏数据的问题？</h5><h5 id="5-使用git进行版本控制时，团队有哪些使用规范？如果自己的提交被冲掉了，如果恢复，是合并后发布还是发布后合并，如果发布了，有bug如果解决，分支该如何管理？"><a href="#5-使用git进行版本控制时，团队有哪些使用规范？如果自己的提交被冲掉了，如果恢复，是合并后发布还是发布后合并，如果发布了，有bug如果解决，分支该如何管理？" class="headerlink" title="5.使用git进行版本控制时，团队有哪些使用规范？如果自己的提交被冲掉了，如果恢复，是合并后发布还是发布后合并，如果发布了，有bug如果解决，分支该如何管理？"></a>5.使用git进行版本控制时，团队有哪些使用规范？如果自己的提交被冲掉了，如果恢复，是合并后发布还是发布后合并，如果发布了，有bug如果解决，分支该如何管理？</h5><h5 id="6-Symfony框架和ThinkPHP框架有哪些区别和共同点，模板引擎有哪些，模板引擎是如何工作的，谈谈Symfony的依赖注入？"><a href="#6-Symfony框架和ThinkPHP框架有哪些区别和共同点，模板引擎有哪些，模板引擎是如何工作的，谈谈Symfony的依赖注入？" class="headerlink" title="6.Symfony框架和ThinkPHP框架有哪些区别和共同点，模板引擎有哪些，模板引擎是如何工作的，谈谈Symfony的依赖注入？"></a>6.Symfony框架和ThinkPHP框架有哪些区别和共同点，模板引擎有哪些，模板引擎是如何工作的，谈谈Symfony的依赖注入？</h5>]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[使用Python抓取律师行业信用信息服务平台数据]]></title>
       <url>https://whark.cn/2018/03/27/use-python-crawl-lawyer-data/</url>
       <content type="html"><![CDATA[<p>本文以律师行业信用服务平台为例，介绍如何对页面数据进行提取，保存。</p>
@@ -526,9 +614,9 @@ if (parse_url( $_SERVER[&#39;REQUEST_URI&#39;] )[&#39;path&#39;] === $url) {
         
         <tags>
             
-            <tag> PHP </tag>
-            
             <tag> website </tag>
+            
+            <tag> PHP </tag>
             
             <tag> 访问控制 </tag>
             
@@ -689,9 +777,9 @@ RUN curl -fsSL &#39;https://xcache.lighttpd.net/pub/Releases/3.2.0/xcache-3.2.0.
         
         <tags>
             
-            <tag> 容器 </tag>
-            
             <tag> skill </tag>
+            
+            <tag> 容器 </tag>
             
             <tag> Docker </tag>
             
