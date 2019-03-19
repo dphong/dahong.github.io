@@ -51,7 +51,7 @@ _rebuild()
     <entry>
       <title><![CDATA[记一次安心记加班面试记录]]></title>
       <url>https://whark.cn/2018/04/08/interview-experience-jjb/</url>
-      <content type="html"><![CDATA[<h3 id="记一次安心记加班面试记录"><a href="#记一次安心记加班面试记录" class="headerlink" title="记一次安心记加班面试记录"></a>记一次安心记加班面试记录</h3><p>简历处理很快，放假投递的，第一个工作日就收到面试邀请了，一面面试官很年轻，也很有技术范，聊的很开心，有些问题没有想出来，面试官引导的非常好，思维很活跃，很希望能一起共事，二面面试官问的问题都比较笼统，不是很具体，回答的时候我自己也没有问清楚具体应用场景，没有答到点上，经验也比较少，所有毫无悬念的挂了，但两位面试官脾气都很好，面试过程中收获很多，十分感谢，有一些没有回答出来，或者回答不够好的问题，予以记录：</p>
+      <content type="html"><![CDATA[<p>简历处理很快，放假投递的，第一个工作日就收到面试邀请了，一面面试官很年轻，也很有技术范，聊的很开心，有些问题没有想出来，面试官引导的非常好，思维很活跃，很希望能一起共事，二面面试官问的问题都比较笼统，不是很具体，回答的时候我自己也没有问清楚具体应用场景，没有答到点上，经验也比较少，所有毫无悬念的挂了，但两位面试官脾气都很好，面试过程中收获很多，十分感谢，有一些没有回答出来，或者回答不够好的问题，予以记录：</p>
 <ol>
 <li>我使用的Token是如何保障信息安全的，使用的对称加密还是非对称加密，如果我离职了，知道Token的生成算法，能不能随意构造用户Token，为什么使用Token而不使用Session？</li>
 <li>有没有用过MQ，知不知道RPC，还用过哪些消息队列，知不知道Redis的垃圾回收机制，那PHP的呢，如果是常驻进程呢？</li>
@@ -621,7 +621,7 @@ Win + R, 输入shutdown-s -t 3600
 
 #取消定时关机
 Win + R，输入shutdown -a
-</code></pre><h3 id="软件推荐"><a href="#软件推荐" class="headerlink" title="软件推荐"></a>软件推荐</h3><ul>
+</code></pre><h5 id="软件推荐"><a href="#软件推荐" class="headerlink" title="软件推荐"></a>软件推荐</h5><ul>
 <li><p>文件查找：<a href="https://www.voidtools.com/downloads" target="_blank" rel="external">everything</a></p>
 </li>
 <li><p>优雅打开应用：<a href="http://www.launchy.net" target="_blank" rel="external">launchy</a></p>
@@ -631,7 +631,7 @@ Win + R，输入shutdown -a
 <p>​    Github出品：<a href="https://atom.io/" target="_blank" rel="external">ATOM</a></p>
 </li>
 </ul>
-<h3 id="网站资源推荐"><a href="#网站资源推荐" class="headerlink" title="网站资源推荐"></a>网站资源推荐</h3><ul>
+<h5 id="网站资源推荐"><a href="#网站资源推荐" class="headerlink" title="网站资源推荐"></a>网站资源推荐</h5><ul>
 <li><p>程序员必备站点：</p>
 <p>  最大同性交友网站：<a href="https://github.com" target="_blank" rel="external">GitHub</a></p>
 <p>  stackoverflow：<a href="https://stackoverflow.com/" target="_blank" rel="external">stackoverflow</a></p>
@@ -659,7 +659,7 @@ Win + R，输入shutdown -a
 <li>黑客级别插件：<a href="https://jeffjade.com/2015/10/19/2015-10-18-chrome-vimium/" target="_blank" rel="external">Vimium</a></li>
 </ul>
 <h3 id="翻墙"><a href="#翻墙" class="headerlink" title="翻墙"></a>翻墙</h3><p>推荐自己购买VPS服务器搭建SSR服务，比较安全，网上分享的免费帐号和免费软件，都不安全，数据走的他们的服务器，有些还留了有后门，为了数据安全还是自建吧。</p>
-<p>自己用的是 <a href="https://www.vultr.com/?ref=7323972" target="_blank" rel="external">Vultr</a>（$3/月）和 <a href="https://m.do.co/c/f6107e737cf4" target="_blank" rel="external">Digitalocean</a> （$5/月）的，性价比来说是最好的，一台服务器可以几个人一起用速度都还很快，之前 <a href="https://bandwagonhost.com/aff.php?aff=36704" target="_blank" rel="external">搬瓦工</a>（$19.99/年）挺便宜的，但现在这个套餐已经没了。</p>
+<p>自己用的是 <a href="https://www.vultr.com/?ref=7799169-4F" target="_blank" rel="external">Vultr</a> （$3/月，点击我的链接注册，能获得50美元使用劵，也就是可以先免费试用一段时间）和 <a href="https://m.do.co/c/f6107e737cf4" target="_blank" rel="external">Digitalocean</a>（$5/月，点击我的链接注册，能获得100美元劵，有效期60天，可以免费使用两个月）的，性价比来说是最好的，一台服务器可以几个人一起用速度都还很快，之前 <a href="https://bandwagonhost.com/aff.php?aff=36704" target="_blank" rel="external">搬瓦工</a>（$19.99/年）挺便宜的，但现在这个套餐已经没了。</p>
 <h5 id="桌面客户端"><a href="#桌面客户端" class="headerlink" title="桌面客户端"></a>桌面客户端</h5><p><a href="https://github.com/shadowsocks/shadowsocks-windows" target="_blank" rel="external">shadowsocks-windows</a></p>
 <p><a href="https://github.com/shadowsocks/shadowsocks-iOS/releases" target="_blank" rel="external">shadowsocks-mac</a></p>
 <h5 id="移动客户端"><a href="#移动客户端" class="headerlink" title="移动客户端"></a>移动客户端</h5><p><a href="https://github.com/shadowsocksr-backup/shadowsocksr-android/releases" target="_blank" rel="external">shadowsocks-android</a></p>
@@ -743,9 +743,9 @@ RUN curl -fsSL &#39;https://xcache.lighttpd.net/pub/Releases/3.2.0/xcache-3.2.0.
         
         <tags>
             
-            <tag> 容器 </tag>
-            
             <tag> skill </tag>
+            
+            <tag> 容器 </tag>
             
             <tag> Docker </tag>
             
