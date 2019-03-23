@@ -477,8 +477,9 @@ function IsPC() {
 <p><a href="https://blog.csdn.net/qq_36763896/article/details/53293088" target="_blank" rel="external">7 步精简 Docker 镜像几百MB</a></p>
 <p><a href="https://goaccess.io/download" target="_blank" rel="external">搭建nginx访问日志分析工具Goaccess</a></p>
 <p><a href="https://docs.docker.com/samples/library/php/" target="_blank" rel="external">Docker镜像源中PHP的方法</a></p>
-<h4 id="Docker中PHP环境安装扩展的方法："><a href="#Docker中PHP环境安装扩展的方法：" class="headerlink" title="Docker中PHP环境安装扩展的方法："></a>Docker中PHP环境安装扩展的方法：</h4><pre><code>docker-php-ext-install redis
-</code></pre><h5 id="PHP-CORE-EXTENSIONS"><a href="#PHP-CORE-EXTENSIONS" class="headerlink" title="PHP CORE EXTENSIONS"></a>PHP CORE EXTENSIONS</h5><pre><code>FROM php:7.0-fpm
+<h4 id="Docker中PHP环境安装扩展的方法："><a href="#Docker中PHP环境安装扩展的方法：" class="headerlink" title="Docker中PHP环境安装扩展的方法："></a>Docker中PHP环境安装扩展的方法：</h4><pre><code class="shell">docker-php-ext-install redis
+</code></pre>
+<h5 id="PHP-CORE-EXTENSIONS"><a href="#PHP-CORE-EXTENSIONS" class="headerlink" title="PHP CORE EXTENSIONS"></a>PHP CORE EXTENSIONS</h5><pre><code class="dockerfile">FROM php:7.0-fpm
 RUN apt-get update &amp;&amp; apt-get install -y \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
@@ -487,7 +488,8 @@ RUN apt-get update &amp;&amp; apt-get install -y \
     &amp;&amp; docker-php-ext-install -j$(nproc) iconv mcrypt \
     &amp;&amp; docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     &amp;&amp; docker-php-ext-install -j$(nproc) gd
-</code></pre><h5 id="PECL-EXTENSIONS"><a href="#PECL-EXTENSIONS" class="headerlink" title="PECL EXTENSIONS"></a>PECL EXTENSIONS</h5><pre><code>FROM php:7.1-fpm
+</code></pre>
+<h5 id="PECL-EXTENSIONS"><a href="#PECL-EXTENSIONS" class="headerlink" title="PECL EXTENSIONS"></a>PECL EXTENSIONS</h5><pre><code class="dockerfile">FROM php:7.1-fpm
 RUN pecl install redis-3.1.0 \
     &amp;&amp; pecl install xdebug-2.5.0 \
     &amp;&amp; docker-php-ext-enable redis xdebug
@@ -496,7 +498,8 @@ FROM php:5.6-fpm
 RUN apt-get update &amp;&amp; apt-get install -y libmemcached-dev zlib1g-dev \
     &amp;&amp; pecl install memcached-2.2.0 \
     &amp;&amp; docker-php-ext-enable memcached
-</code></pre><h5 id="OTHER-EXTENSIONS"><a href="#OTHER-EXTENSIONS" class="headerlink" title="OTHER EXTENSIONS"></a>OTHER EXTENSIONS</h5><pre><code>FROM php:5.6-apache
+</code></pre>
+<h5 id="OTHER-EXTENSIONS"><a href="#OTHER-EXTENSIONS" class="headerlink" title="OTHER EXTENSIONS"></a>OTHER EXTENSIONS</h5><pre><code class="dockerfile">FROM php:5.6-apache
 RUN curl -fsSL &#39;https://xcache.lighttpd.net/pub/Releases/3.2.0/xcache-3.2.0.tar.gz&#39; -o xcache.tar.gz \
     &amp;&amp; mkdir -p xcache \
     &amp;&amp; tar -xf xcache.tar.gz -C xcache --strip-components=1 \
@@ -511,6 +514,7 @@ RUN curl -fsSL &#39;https://xcache.lighttpd.net/pub/Releases/3.2.0/xcache-3.2.0.
     &amp;&amp; rm -r xcache \
     &amp;&amp; docker-php-ext-enable xcache
 </code></pre>
+
     
 
     
