@@ -532,13 +532,13 @@ $Obj= Container::make(&#39;B&#39;, [&#39;A&#39;, [&#39;aaa&#39;]]);
         
         <tags>
             
+            <tag> 容器 </tag>
+            
             <tag> PHP </tag>
             
             <tag> 依赖注入 </tag>
             
             <tag> 控制反转 </tag>
-            
-            <tag> 容器 </tag>
             
             <tag> 注册树 </tag>
             
@@ -749,9 +749,9 @@ RUN curl -fsSL &#39;https://xcache.lighttpd.net/pub/Releases/3.2.0/xcache-3.2.0.
             
             <tag> skill </tag>
             
-            <tag> 容器 </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> 容器 </tag>
             
             <tag> 环境搭建 </tag>
             
@@ -763,33 +763,41 @@ RUN curl -fsSL &#39;https://xcache.lighttpd.net/pub/Releases/3.2.0/xcache-3.2.0.
       <title><![CDATA[树莓派初始化配置]]></title>
       <url>https://whark.cn/2017/11/12/first-use-raspberry-pi/</url>
       <content type="html"><![CDATA[<h2 id="更换国内镜像源"><a href="#更换国内镜像源" class="headerlink" title="更换国内镜像源"></a>更换国内镜像源</h2><p>很多教程没有写完整，更换源需要修改两个文件。<br>经过我的测试，发现两个文件分别使用阿里和中科大的效果最好。</p>
-<h5 id="source-list"><a href="#source-list" class="headerlink" title="source.list"></a>source.list</h5><pre><code>sudo nano /etc/apt/sources.list
-</code></pre><p>将原来的配置注释掉，添加第二行即可</p>
-<pre><code>#deb http://mirrordirector.raspbian.org/raspbian/ jessie main contrib non-free rpi
+<h5 id="source-list"><a href="#source-list" class="headerlink" title="source.list"></a>source.list</h5><pre><code class="shell">sudo nano /etc/apt/sources.list
+</code></pre>
+<p>将原来的配置注释掉，添加第二行即可</p>
+<pre><code class="shell">#deb http://mirrordirector.raspbian.org/raspbian/ jessie main contrib non-free rpi
 deb http://mirrors.aliyun.com/raspbian/raspbian/ jessie main contrib non-free rpi
 # Uncomment line below then &#39;apt-get update&#39; to enable &#39;apt-get source&#39;
 #deb-src http://archive.raspbian.org/raspbian/ jessie main contrib non-free rpi
-</code></pre><h5 id="raspi-list"><a href="#raspi-list" class="headerlink" title="raspi.list"></a>raspi.list</h5><p>使用中科大镜像源</p>
-<pre><code>sudo nano /etc/apt/sources.list.d/raspi.list
-</code></pre><p>将原来的配置注释掉，添加第二行即可</p>
-<pre><code>#deb http://archive.raspberrypi.org/debian/ jessie main ui
+</code></pre>
+<h5 id="raspi-list"><a href="#raspi-list" class="headerlink" title="raspi.list"></a>raspi.list</h5><p>使用中科大镜像源</p>
+<pre><code class="shell">sudo nano /etc/apt/sources.list.d/raspi.list
+</code></pre>
+<p>将原来的配置注释掉，添加第二行即可</p>
+<pre><code class="shell">#deb http://archive.raspberrypi.org/debian/ jessie main ui
 deb http://mirrors.ustc.edu.cn/archive.raspberrypi.org/debian/ jessie main ui
 # Uncomment line below then &#39;apt-get update&#39; to enable &#39;apt-get source&#39;
 #deb-src http://archive.raspberrypi.org/debian/ jessie main ui
-</code></pre><h2 id="连接-WiFi"><a href="#连接-WiFi" class="headerlink" title="连接 WiFi"></a>连接 WiFi</h2><p>编辑 wifi 文件</p>
-<pre><code>sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
-</code></pre><p>在该文件最后添加：</p>
-<pre><code>network={
+</code></pre>
+<h2 id="连接-WiFi"><a href="#连接-WiFi" class="headerlink" title="连接 WiFi"></a>连接 WiFi</h2><p>编辑 wifi 文件</p>
+<pre><code class="shell">sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+</code></pre>
+<p>在该文件最后添加：</p>
+<pre><code class="conf">network={
   ssid=&quot;wifiname&quot;
   psk=&quot;password&quot;
 }
-</code></pre><p><code>引号部分分别为 WiFi 的名字和密码</code></p>
+</code></pre>
+<p><code>引号部分分别为 WiFi 的名字和密码</code></p>
 <p>保存文件后几秒钟应该就会自动连接到该 WiFi<br>或者执行</p>
-<pre><code>sudo ifdown wlan0
+<pre><code class="shell">sudo ifdown wlan0
 sudo ifup wlan0
-</code></pre><p>查看是否连接成功</p>
-<pre><code>ifconfig wlan0
-</code></pre><h2 id="设置静态-IP-地址"><a href="#设置静态-IP-地址" class="headerlink" title="设置静态 IP 地址"></a>设置静态 IP 地址</h2><pre><code>sudo nano /etc/network/interfaces
+</code></pre>
+<p>查看是否连接成功</p>
+<pre><code class="shell">ifconfig wlan0
+</code></pre>
+<h2 id="设置静态-IP-地址"><a href="#设置静态-IP-地址" class="headerlink" title="设置静态 IP 地址"></a>设置静态 IP 地址</h2><pre><code class="shell">sudo nano /etc/network/interfaces
 
 allow-hotplug wlan0
 iface wlan0 inet static # 将 manual 改为 static
@@ -798,21 +806,23 @@ iface wlan0 inet static # 将 manual 改为 static
     gateway 192.168.1.1 # 网关
     network 192.168.1.1 # 网络地址
     wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
-</code></pre><p>wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf 可以替换为以下设置方式</p>
-<pre><code>wpa-ssid Your_Wifi_SSID
+</code></pre>
+<p>wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf 可以替换为以下设置方式</p>
+<pre><code class="conf">wpa-ssid Your_Wifi_SSID
 wpa-psk Your_Wifi_Password
-</code></pre>]]></content>
+</code></pre>
+]]></content>
       
         
         <tags>
-            
-            <tag> skill </tag>
             
             <tag> 树莓派 </tag>
             
             <tag> source </tag>
             
             <tag> ip </tag>
+            
+            <tag> skill </tag>
             
         </tags>
         
@@ -975,9 +985,9 @@ fi
         
         <tags>
             
-            <tag> skill </tag>
-            
             <tag> 树莓派 </tag>
+            
+            <tag> skill </tag>
             
             <tag> IP </tag>
             
@@ -1136,9 +1146,9 @@ if (parse_url( $_SERVER[&#39;REQUEST_URI&#39;] )[&#39;path&#39;] === $url) {
         
         <tags>
             
-            <tag> PHP </tag>
-            
             <tag> website </tag>
+            
+            <tag> PHP </tag>
             
             <tag> 访问控制 </tag>
             
@@ -1234,18 +1244,18 @@ git log --graph --pretty=oneline --abbrev-commit    查看分支合并情况
 </ul>
 <h4 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h4><p>推荐大家使用<a href="https://www.nowcoder.com" target="_blank" rel="external">牛客网</a>，偶尔可以刷刷题，巩固一下基础知识，无聊时可以做一下智力题专项训练，预防青年痴呆。</p>
 <h4 id="补更结果"><a href="#补更结果" class="headerlink" title="补更结果"></a>补更结果</h4><p>今天结果出来了很意外，先看了下求职竞争力报告，分数挺低的，挺可惜的，后来和同学详聊的时候，他发现我进排行榜了，着实吓了一跳，这下觉得更可惜了。以下附上求职竞争力报告和排行榜。</p>
-<p><a href="http://ongjgltez.bkt.clouddn.com/pdf/%E6%B1%82%E8%81%8C%E7%AB%9E%E4%BA%89%E5%8A%9B%E6%8A%A5%E5%91%8A.pdf" target="_blank" rel="external">求职竞争力报告</a></p>
-<p><img src="http://ongjgltez.bkt.clouddn.com/image/%E6%8E%92%E8%A1%8C%E6%A6%9C.png" alt="Alt text"></p>
+<p><a href="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/posts/img/Job_competitiveness_report.pdf" target="_blank" rel="external">求职竞争力报告</a></p>
+<p><img src="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/posts/img/Leaderboard.png" alt="2017-05-19排行榜"></p>
 ]]></content>
       
         
         <tags>
             
-            <tag> life </tag>
-            
             <tag> 牛客 </tag>
             
             <tag> 程序猿 </tag>
+            
+            <tag> life </tag>
             
         </tags>
         
@@ -1336,11 +1346,11 @@ git log --graph --pretty=oneline --abbrev-commit    查看分支合并情况
         
         <tags>
             
+            <tag> skill </tag>
+            
             <tag> 批处理 </tag>
             
             <tag> Excel </tag>
-            
-            <tag> skill </tag>
             
         </tags>
         
