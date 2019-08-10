@@ -4,12 +4,39 @@
   
     
     <entry>
+      <title><![CDATA[使用GitHub的Markdown写博客]]></title>
+      <url>https://whark.cn/2019/08/10/use-github-write-blog/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>本篇博客就是使用此方法在GitHub上创作</p>
+</blockquote>
+<p>基础建设：先在服务器上搭建好 Hexo 环境，可以参照这篇博客 <a href="https://www.jianshu.com/p/75efaba08a34" target="_blank" rel="noopener">Hexo环境搭建2018年5月版</a>,完成之后的效果就是，访问自定义域名或者 <em>xxx.github.io</em> 能访问到自己的博客。</p>
+<p>本文背景：但这样有一个限制，必须在搭建 hexo 的电脑上才能写作，并更新到博客，不太方便，考虑到 GitHub 支持Markdown 语法，Hexo 的写作也是使用 Markdown，所以就思考是否可以在 Github 上直接写作，更新博客。</p>
+<p>解决方案：使用 Github 的 Webhooks 工具，监听代码仓库 push 状态，如果代码有新的 commit，就触发一次 Webhooks，POST 一份数据到自定义的 URL 上 (Reference: <a href="https://whark.cn/2017/06/02/set-github-webhook/">转载：配置Github Webhooks自动部署项目</a> )，具体思路如下：</p>
+<p>最终的博客就展示在 GitHub Pages(<a href="dphong.github.io">dphong.github.io</a>) 和 自己的服务器(<a href="https://whark.cn">https://whark.cn</a>)上了。</p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> Github </tag>
+            
+            <tag> Webhooks </tag>
+            
+            <tag> Hexo </tag>
+            
+            <tag> Node </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Python matplotlib 配置中文字体]]></title>
       <url>https://whark.cn/2019/03/18/python-matplotlib-chinese/</url>
       <content type="html"><![CDATA[<p>Python matplotlib 配置中文字体</p>
 <ol>
 <li>下载中文字体（黑体，下载对应系统的版本，Unix系统下载For MAC版）<blockquote>
-<p><a href="https://www.fontpalace.com/font-details/SimHei/" target="_blank" rel="external">https://www.fontpalace.com/font-details/SimHei/</a></p>
+<p><a href="https://www.fontpalace.com/font-details/SimHei/" target="_blank" rel="noopener">https://www.fontpalace.com/font-details/SimHei/</a></p>
 </blockquote>
 </li>
 <li>桌面版系统，解压之后直接在系统中安装好，服务器版系统解压好备用</li>
@@ -150,7 +177,7 @@ Sender发送消息给Queue；Receiver从Queue拿到消息来处理。
       <title><![CDATA[使用Python抓取数据]]></title>
       <url>https://whark.cn/2018/03/27/use-python-crawl-lawyer-data/</url>
       <content type="html"><![CDATA[<p>本文以律师行业信用服务平台为例，介绍如何对页面数据进行提取，保存。</p>
-<h3 id="开始：页面数据分析"><a href="#开始：页面数据分析" class="headerlink" title="开始：页面数据分析"></a>开始：页面数据分析</h3><p>打开 <a href="http://credit.gdlawyer.org.cn/front/indexFront/listDetail?type=1" target="_blank" rel="external">广东省律师行业信用信息服务平台</a> ，F12打开控制台，点击Network，刷新界面，发现了向API请求的接口，返回的资源是 <strong>Json</strong> 格式的，而且资源中的数据就是页面上的，就能确认页面中的律师信息就是通过这个接口读取的，本站点是采用前后端分离写的，如果没有类似的请求，数据是直接渲染在HTML中，说明HTML在后端已经处理好了，只能按标签，分离数据了。</p>
+<h3 id="开始：页面数据分析"><a href="#开始：页面数据分析" class="headerlink" title="开始：页面数据分析"></a>开始：页面数据分析</h3><p>打开 <a href="http://credit.gdlawyer.org.cn/front/indexFront/listDetail?type=1" target="_blank" rel="noopener">广东省律师行业信用信息服务平台</a> ，F12打开控制台，点击Network，刷新界面，发现了向API请求的接口，返回的资源是 <strong>Json</strong> 格式的，而且资源中的数据就是页面上的，就能确认页面中的律师信息就是通过这个接口读取的，本站点是采用前后端分离写的，如果没有类似的请求，数据是直接渲染在HTML中，说明HTML在后端已经处理好了，只能按标签，分离数据了。</p>
 <p><img src="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/posts/img/lawyer_find_api_address.jpg" alt="lawyer_find_api_address"></p>
 <h3 id="尝试：API接口调用"><a href="#尝试：API接口调用" class="headerlink" title="尝试：API接口调用"></a>尝试：API接口调用</h3><p>看看API能不能正常访问，如下图：</p>
 <p><img src="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/posts/img/lawyer_api_address_try.jpg" alt="lawyer_api_address_try"></p>
@@ -436,7 +463,7 @@ print(&quot;数据保存完毕，总执行时间：%ss，总等待时间：%ds&q
     <entry>
       <title><![CDATA[PHP的容器 -- 依赖注入(DI) 和 控制反转(IoC)]]></title>
       <url>https://whark.cn/2018/03/25/DI-and-IoC/</url>
-      <content type="html"><![CDATA[<p>本文内容大部分参考自：<a href="https://juejin.im/post/590c63ad1b69e600683bf8ea" target="_blank" rel="external">对PHP框架中的容器的理解</a></p>
+      <content type="html"><![CDATA[<p>本文内容大部分参考自：<a href="https://juejin.im/post/590c63ad1b69e600683bf8ea" target="_blank" rel="noopener">对PHP框架中的容器的理解</a></p>
 <h4 id="PHP的容器-–-依赖注入-DI-和-控制反转-IoC"><a href="#PHP的容器-–-依赖注入-DI-和-控制反转-IoC" class="headerlink" title="PHP的容器 – 依赖注入(DI) 和 控制反转(IoC)"></a>PHP的容器 – 依赖注入(DI) 和 控制反转(IoC)</h4><h5 id="DI-Dependency-Injection-依赖注入"><a href="#DI-Dependency-Injection-依赖注入" class="headerlink" title="DI  - Dependency Injection  依赖注入"></a>DI  - Dependency Injection  依赖注入</h5><h5 id="IoC-Inversion-of-Control-控制反转"><a href="#IoC-Inversion-of-Control-控制反转" class="headerlink" title="IoC - Inversion of Control  控制反转"></a>IoC - Inversion of Control  控制反转</h5><p>依赖注入和控制反转是对同一件事情的不同描述，从某个方面讲，就是它们描述的角度不同。</p>
 <ul>
 <li>依赖注入是从应用程序的角度在描述，可以把依赖注入，即：应用程序依赖容器创建并注入它所需要的外部资源；</li>
@@ -569,7 +596,7 @@ public function rule($name, $rule = &#39;&#39;)
         }
 }
 </code></pre>
-<p>Google搜索了一番，其主要区别如下（引用自 <a href="https://segmentfault.com/a/1190000009114383" target="_blank" rel="external">PHP中array_merge函数与array+array的区别</a>）：</p>
+<p>Google搜索了一番，其主要区别如下（引用自 <a href="https://segmentfault.com/a/1190000009114383" target="_blank" rel="noopener">PHP中array_merge函数与array+array的区别</a>）：</p>
 <ol>
 <li>当下标为数值时，array_merge()不会覆盖掉原来的值，但array＋array合并数组则会把最先出现的值作为最终结果返回，而把后面的数组拥有相同键名的那些值“抛弃”掉（不是覆盖）. </li>
 <li>当下标为字符时，array＋array仍然把最先出现的值作为最终结果返回，而把后面的数组拥有相同键名的那些值“抛弃”掉，但array_merge()此时会覆盖掉前面相同键名的值. </li>
@@ -622,52 +649,52 @@ Win + R, 输入shutdown-s -t 3600
 #取消定时关机
 Win + R，输入shutdown -a
 </code></pre><h5 id="软件推荐"><a href="#软件推荐" class="headerlink" title="软件推荐"></a>软件推荐</h5><ul>
-<li><p>文件查找：<a href="https://www.voidtools.com/downloads" target="_blank" rel="external">everything</a></p>
+<li><p>文件查找：<a href="https://www.voidtools.com/downloads" target="_blank" rel="noopener">everything</a></p>
 </li>
-<li><p>优雅打开应用：<a href="http://www.launchy.net" target="_blank" rel="external">launchy</a></p>
+<li><p>优雅打开应用：<a href="http://www.launchy.net" target="_blank" rel="noopener">launchy</a></p>
 </li>
 <li><p>跨平台IDE：</p>
-<p>​    微软出品：<a href="https://code.visualstudio.com/" target="_blank" rel="external">VS code</a></p>
-<p>​    Github出品：<a href="https://atom.io/" target="_blank" rel="external">ATOM</a></p>
+<p>​    微软出品：<a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VS code</a></p>
+<p>​    Github出品：<a href="https://atom.io/" target="_blank" rel="noopener">ATOM</a></p>
 </li>
 </ul>
 <h5 id="网站资源推荐"><a href="#网站资源推荐" class="headerlink" title="网站资源推荐"></a>网站资源推荐</h5><ul>
 <li><p>程序员必备站点：</p>
-<p>  最大同性交友网站：<a href="https://github.com" target="_blank" rel="external">GitHub</a></p>
-<p>  stackoverflow：<a href="https://stackoverflow.com/" target="_blank" rel="external">stackoverflow</a></p>
-<p>  SegmentFault：<a href="https://segmentfault.com/" target="_blank" rel="external">SegmentFault</a></p>
+<p>  最大同性交友网站：<a href="https://github.com" target="_blank" rel="noopener">GitHub</a></p>
+<p>  stackoverflow：<a href="https://stackoverflow.com/" target="_blank" rel="noopener">stackoverflow</a></p>
+<p>  SegmentFault：<a href="https://segmentfault.com/" target="_blank" rel="noopener">SegmentFault</a></p>
 </li>
-<li><p>微软镜像收录站点：<a href="https://msdn.itellyou.cn/" target="_blank" rel="external">I Tell You</a></p>
+<li><p>微软镜像收录站点：<a href="https://msdn.itellyou.cn/" target="_blank" rel="noopener">I Tell You</a></p>
 </li>
-<li><p>网站开发教程：<a href="http://www.w3school.com.cn/" target="_blank" rel="external">W3school</a></p>
+<li><p>网站开发教程：<a href="http://www.w3school.com.cn/" target="_blank" rel="noopener">W3school</a></p>
 </li>
-<li><p>网站前端开发框架：<a href="http://www.bootcss.com/" target="_blank" rel="external">Bootstrap</a></p>
+<li><p>网站前端开发框架：<a href="http://www.bootcss.com/" target="_blank" rel="noopener">Bootstrap</a></p>
 </li>
-<li><p>开源中国-在线工具：<a href="http://tool.oschina.net/" target="_blank" rel="external">在线工具</a></p>
+<li><p>开源中国-在线工具：<a href="http://tool.oschina.net/" target="_blank" rel="noopener">在线工具</a></p>
 </li>
-<li><p>图片在线压缩(Google出品)：<a href="https://squoosh.app/" target="_blank" rel="external">squoosh</a></p>
+<li><p>图片在线压缩(Google出品)：<a href="https://squoosh.app/" target="_blank" rel="noopener">squoosh</a></p>
 </li>
-<li><p>AI人工智能图片放大：<a href="http://bigjpg.com" target="_blank" rel="external">BigJPG</a></p>
+<li><p>AI人工智能图片放大：<a href="http://bigjpg.com" target="_blank" rel="noopener">BigJPG</a></p>
 </li>
-<li><p>在线格式转换：<a href="https://www.online-convert.com/" target="_blank" rel="external">online-convert</a></p>
+<li><p>在线格式转换：<a href="https://www.online-convert.com/" target="_blank" rel="noopener">online-convert</a></p>
 </li>
 </ul>
 <h3 id="Chrome插件推荐"><a href="#Chrome插件推荐" class="headerlink" title="Chrome插件推荐"></a>Chrome插件推荐</h3><ul>
-<li>屏蔽广告：<a href="https://github.com/guidesmiths/adblock-plus-crx/raw/master/bin/Adblock-Plus_v1.12.4.crx" target="_blank" rel="external">Adblock</a><a href="https://github.com/guidesmiths/adblock-plus-crx/raw/master/bin/Adblock-Plus_v1.12.4.crx" target="_blank" rel="external">-Plus</a></li>
-<li>记录网页内容：<a href="http://funp.in/" target="_blank" rel="external">方片收集</a></li>
-<li>代理插件：<a href="https://github.com/FelisCatus/SwitchyOmega/releases/download/v2.5.10/SwitchyOmega_Chromium.crx" target="_blank" rel="external">SwitchyOmega</a></li>
-<li>黑客级别插件：<a href="https://jeffjade.com/2015/10/19/2015-10-18-chrome-vimium/" target="_blank" rel="external">Vimium</a></li>
+<li>屏蔽广告：<a href="https://github.com/guidesmiths/adblock-plus-crx/raw/master/bin/Adblock-Plus_v1.12.4.crx" target="_blank" rel="noopener">Adblock</a><a href="https://github.com/guidesmiths/adblock-plus-crx/raw/master/bin/Adblock-Plus_v1.12.4.crx" target="_blank" rel="noopener">-Plus</a></li>
+<li>记录网页内容：<a href="http://funp.in/" target="_blank" rel="noopener">方片收集</a></li>
+<li>代理插件：<a href="https://github.com/FelisCatus/SwitchyOmega/releases/download/v2.5.10/SwitchyOmega_Chromium.crx" target="_blank" rel="noopener">SwitchyOmega</a></li>
+<li>黑客级别插件：<a href="https://jeffjade.com/2015/10/19/2015-10-18-chrome-vimium/" target="_blank" rel="noopener">Vimium</a></li>
 </ul>
 <h3 id="翻墙"><a href="#翻墙" class="headerlink" title="翻墙"></a>翻墙</h3><p>推荐自己购买VPS服务器搭建SSR服务，比较安全，网上分享的免费帐号和免费软件，都不安全，数据走的他们的服务器，有些还留了有后门，为了数据安全还是自建吧。</p>
-<p>自己用的是 <a href="https://www.vultr.com/?ref=7799169-4F" target="_blank" rel="external">Vultr</a> （$3/月，点击我的链接注册，能获得50美元使用劵，也就是可以先免费试用一段时间）和 <a href="https://m.do.co/c/f6107e737cf4" target="_blank" rel="external">Digitalocean</a>（$5/月，点击我的链接注册，能获得100美元劵，有效期60天，可以免费使用两个月）的，性价比来说是最好的，一台服务器可以几个人一起用速度都还很快，之前 <a href="https://bandwagonhost.com/aff.php?aff=36704" target="_blank" rel="external">搬瓦工</a>（$19.99/年）挺便宜的，但现在这个套餐已经没了。</p>
-<h5 id="桌面客户端"><a href="#桌面客户端" class="headerlink" title="桌面客户端"></a>桌面客户端</h5><p><a href="https://github.com/shadowsocks/shadowsocks-windows" target="_blank" rel="external">shadowsocks-windows</a></p>
-<p><a href="https://github.com/shadowsocks/shadowsocks-iOS/releases" target="_blank" rel="external">shadowsocks-mac</a></p>
-<h5 id="移动客户端"><a href="#移动客户端" class="headerlink" title="移动客户端"></a>移动客户端</h5><p><a href="https://github.com/shadowsocksr-backup/shadowsocksr-android/releases" target="_blank" rel="external">shadowsocks-android</a></p>
-<p><a href="https://github.com/Alvin9999/new-pac/wiki/%E8%8B%B9%E6%9E%9C%E6%89%8B%E6%9C%BA%E7%BF%BB%E5%A2%99%E8%BD%AF%E4%BB%B6" target="_blank" rel="external">shadowsocks-ios</a></p>
-<h5 id="自建服务端"><a href="#自建服务端" class="headerlink" title="自建服务端"></a>自建服务端</h5><p><a href="http://ss.whark.cn/ss.html" target="_blank" rel="external">自建SSR服务器教程</a></p>
-<p><a href="https://github.com/Alvin9999/new-pac/wiki/%E8%87%AA%E5%BB%BAv2ray%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%99%E7%A8%8B" target="_blank" rel="external">自建v2ray服务器教程</a></p>
-<p><a href="https://blog.csdn.net/zdy1127/article/details/50664736" target="_blank" rel="external">Centos7搭建pptp VPN一键安装脚本</a></p>
-<h6 id="水管变水桶的BBR："><a href="#水管变水桶的BBR：" class="headerlink" title="水管变水桶的BBR："></a>水管变水桶的BBR：</h6><p><a href="https://teddysun.com/489.html" target="_blank" rel="external">一键安装最新内核并开启 BBR 脚本</a></p>
+<p>自己用的是 <a href="https://www.vultr.com/?ref=7799169-4F" target="_blank" rel="noopener">Vultr</a> （$3/月，点击我的链接注册，能获得50美元使用劵，也就是可以先免费试用一段时间）和 <a href="https://m.do.co/c/f6107e737cf4" target="_blank" rel="noopener">Digitalocean</a>（$5/月，点击我的链接注册，能获得100美元劵，有效期60天，可以免费使用两个月）的，性价比来说是最好的，一台服务器可以几个人一起用速度都还很快，之前 <a href="https://bandwagonhost.com/aff.php?aff=36704" target="_blank" rel="noopener">搬瓦工</a>（$19.99/年）挺便宜的，但现在这个套餐已经没了。</p>
+<h5 id="桌面客户端"><a href="#桌面客户端" class="headerlink" title="桌面客户端"></a>桌面客户端</h5><p><a href="https://github.com/shadowsocks/shadowsocks-windows" target="_blank" rel="noopener">shadowsocks-windows</a></p>
+<p><a href="https://github.com/shadowsocks/shadowsocks-iOS/releases" target="_blank" rel="noopener">shadowsocks-mac</a></p>
+<h5 id="移动客户端"><a href="#移动客户端" class="headerlink" title="移动客户端"></a>移动客户端</h5><p><a href="https://github.com/shadowsocksr-backup/shadowsocksr-android/releases" target="_blank" rel="noopener">shadowsocks-android</a></p>
+<p><a href="https://github.com/Alvin9999/new-pac/wiki/%E8%8B%B9%E6%9E%9C%E6%89%8B%E6%9C%BA%E7%BF%BB%E5%A2%99%E8%BD%AF%E4%BB%B6" target="_blank" rel="noopener">shadowsocks-ios</a></p>
+<h5 id="自建服务端"><a href="#自建服务端" class="headerlink" title="自建服务端"></a>自建服务端</h5><p><a href="http://ss.whark.cn/ss.html" target="_blank" rel="noopener">自建SSR服务器教程</a></p>
+<p><a href="https://github.com/Alvin9999/new-pac/wiki/%E8%87%AA%E5%BB%BAv2ray%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%99%E7%A8%8B" target="_blank" rel="noopener">自建v2ray服务器教程</a></p>
+<p><a href="https://blog.csdn.net/zdy1127/article/details/50664736" target="_blank" rel="noopener">Centos7搭建pptp VPN一键安装脚本</a></p>
+<h6 id="水管变水桶的BBR："><a href="#水管变水桶的BBR：" class="headerlink" title="水管变水桶的BBR："></a>水管变水桶的BBR：</h6><p><a href="https://teddysun.com/489.html" target="_blank" rel="noopener">一键安装最新内核并开启 BBR 脚本</a></p>
 ]]></content>
       
         
@@ -700,11 +727,11 @@ Win + R，输入shutdown -a
 <p><img src="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/posts/img/docker-modules.png" alt="docker-modules"></p>
 </li>
 </ul>
-<h3 id="Docker相关教程"><a href="#Docker相关教程" class="headerlink" title="Docker相关教程"></a>Docker相关教程</h3><p><a href="http://dockone.io/article/131" target="_blank" rel="external">Dockerfile最佳实践</a></p>
-<p><a href="https://www.awaimai.com/2120.html" target="_blank" rel="external">Docker搭建可一键部署的多域名LNMP环境</a></p>
-<p><a href="https://blog.csdn.net/qq_36763896/article/details/53293088" target="_blank" rel="external">7 步精简 Docker 镜像几百MB</a></p>
-<p><a href="https://goaccess.io/download" target="_blank" rel="external">搭建nginx访问日志分析工具Goaccess</a></p>
-<p><a href="https://docs.docker.com/samples/library/php/" target="_blank" rel="external">Docker镜像源中PHP的方法</a></p>
+<h3 id="Docker相关教程"><a href="#Docker相关教程" class="headerlink" title="Docker相关教程"></a>Docker相关教程</h3><p><a href="http://dockone.io/article/131" target="_blank" rel="noopener">Dockerfile最佳实践</a></p>
+<p><a href="https://www.awaimai.com/2120.html" target="_blank" rel="noopener">Docker搭建可一键部署的多域名LNMP环境</a></p>
+<p><a href="https://blog.csdn.net/qq_36763896/article/details/53293088" target="_blank" rel="noopener">7 步精简 Docker 镜像几百MB</a></p>
+<p><a href="https://goaccess.io/download" target="_blank" rel="noopener">搭建nginx访问日志分析工具Goaccess</a></p>
+<p><a href="https://docs.docker.com/samples/library/php/" target="_blank" rel="noopener">Docker镜像源中PHP的方法</a></p>
 <h4 id="Docker中PHP环境安装扩展的方法："><a href="#Docker中PHP环境安装扩展的方法：" class="headerlink" title="Docker中PHP环境安装扩展的方法："></a>Docker中PHP环境安装扩展的方法：</h4><pre><code class="shell">docker-php-ext-install redis
 </code></pre>
 <h5 id="PHP-CORE-EXTENSIONS"><a href="#PHP-CORE-EXTENSIONS" class="headerlink" title="PHP CORE EXTENSIONS"></a>PHP CORE EXTENSIONS</h5><pre><code class="dockerfile">FROM php:7.0-fpm
@@ -747,9 +774,9 @@ RUN curl -fsSL &#39;https://xcache.lighttpd.net/pub/Releases/3.2.0/xcache-3.2.0.
         
         <tags>
             
-            <tag> skill </tag>
-            
             <tag> 容器 </tag>
+            
+            <tag> skill </tag>
             
             <tag> Docker </tag>
             
@@ -816,13 +843,13 @@ wpa-psk Your_Wifi_Password
         
         <tags>
             
+            <tag> skill </tag>
+            
             <tag> 树莓派 </tag>
             
             <tag> source </tag>
             
             <tag> ip </tag>
-            
-            <tag> skill </tag>
             
         </tags>
         
@@ -831,7 +858,7 @@ wpa-psk Your_Wifi_Password
     <entry>
       <title><![CDATA[转载：配置Github Webhooks自动部署项目]]></title>
       <url>https://whark.cn/2017/06/02/set-github-webhook/</url>
-      <content type="html"><![CDATA[<p>转载自：<a href="https://www.jianshu.com/p/e4cacd775e5b" target="_blank" rel="external">利用Github的Webhook功能和Node.js完成项目的自动部署</a></p>
+      <content type="html"><![CDATA[<p>转载自：<a href="https://www.jianshu.com/p/e4cacd775e5b" target="_blank" rel="noopener">利用Github的Webhook功能和Node.js完成项目的自动部署</a></p>
 <h3 id="首先完成Node-js服务器的代码构建，先上代码，再解释"><a href="#首先完成Node-js服务器的代码构建，先上代码，再解释" class="headerlink" title="首先完成Node.js服务器的代码构建，先上代码，再解释"></a>首先完成Node.js服务器的代码构建，先上代码，再解释</h3><pre><code>var http = require(&#39;http&#39;)
 var createHandler = require(&#39;github-webhook-handler&#39;)
 var handler = createHandler({ path: &#39;/&#39;, secret: &#39;root&#39; })
@@ -953,7 +980,7 @@ echo -e &quot;Client : Successful!&quot;
 <pre><code>chmod +x ip.sh
 </code></pre><p>查询IP并上传</p>
 <pre><code>./ip.sh
-</code></pre><p>然后在 <a href="http://ip.whark.cn" target="_blank" rel="external">ip.whark.cn</a> 查看<br>也可以使用参数,”-h” 获取参数列表</p>
+</code></pre><p>然后在 <a href="http://ip.whark.cn" target="_blank" rel="noopener">ip.whark.cn</a> 查看<br>也可以使用参数,”-h” 获取参数列表</p>
 <pre><code>./ip.sh --help
 # -a 指定本机的名称，如：
 ./ip.sh -a test_ubuntu
@@ -985,9 +1012,9 @@ fi
         
         <tags>
             
-            <tag> 树莓派 </tag>
-            
             <tag> skill </tag>
+            
+            <tag> 树莓派 </tag>
             
             <tag> IP </tag>
             
@@ -1160,7 +1187,7 @@ if (parse_url( $_SERVER[&#39;REQUEST_URI&#39;] )[&#39;path&#39;] === $url) {
       <title><![CDATA[Git的配置及使用]]></title>
       <url>https://whark.cn/2017/05/22/use-of-git/</url>
       <content type="html"><![CDATA[<h3 id="下载Git"><a href="#下载Git" class="headerlink" title="下载Git"></a>下载Git</h3><h5 id="ubuntu"><a href="#ubuntu" class="headerlink" title="ubuntu"></a>ubuntu</h5><pre><code>sudo apt-get install git
-</code></pre><h5 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h5><p>Git<a href="https://git-for-windows.github.io/" target="_blank" rel="external">官网</a>下载安装</p>
+</code></pre><h5 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h5><p>Git<a href="https://git-for-windows.github.io/" target="_blank" rel="noopener">官网</a>下载安装</p>
 <h3 id="配置Git"><a href="#配置Git" class="headerlink" title="配置Git"></a>配置Git</h3><h4 id="设置git用户名-邮箱"><a href="#设置git用户名-邮箱" class="headerlink" title="设置git用户名/邮箱"></a>设置git用户名/邮箱</h4><pre><code>git config --global user.name [username]
 git config --global user.email [email]
 </code></pre><p>如果Git源每次操作需要你输入用户名/密码验证，就需要做如下设置：</p>
@@ -1213,9 +1240,9 @@ git merge dev            名称为dev的分支与当前分支合并
 git branch -d dev        删除分支dev
 git merge --no-ff -m &quot;merge with no-ff&quot; dev            合并分支，禁用Fast forward
 git log --graph --pretty=oneline --abbrev-commit    查看分支合并情况
-</code></pre><h5 id="参考教程"><a href="#参考教程" class="headerlink" title="参考教程"></a>参考教程</h5><p><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">git教程–廖雪峰</a></p>
-<p><a href="https://juejin.im/user/577f597d5bbb500061e8a761" target="_blank" rel="external">掘金–嘟嘟MD</a></p>
-<p><a href="http://www.cnblogs.com/cspku/articles/Git_cmds.html" target="_blank" rel="external">Git常用命令</a></p>
+</code></pre><h5 id="参考教程"><a href="#参考教程" class="headerlink" title="参考教程"></a>参考教程</h5><p><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="noopener">git教程–廖雪峰</a></p>
+<p><a href="https://juejin.im/user/577f597d5bbb500061e8a761" target="_blank" rel="noopener">掘金–嘟嘟MD</a></p>
+<p><a href="http://www.cnblogs.com/cspku/articles/Git_cmds.html" target="_blank" rel="noopener">Git常用命令</a></p>
 ]]></content>
       
         
@@ -1242,20 +1269,20 @@ git log --graph --pretty=oneline --abbrev-commit    查看分支合并情况
 <li>对信息的关注度不够，导致不能及时进入考试</li>
 <li>决策有问题，导致最后的时间没能好好利用，再次错过了答题</li>
 </ul>
-<h4 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h4><p>推荐大家使用<a href="https://www.nowcoder.com" target="_blank" rel="external">牛客网</a>，偶尔可以刷刷题，巩固一下基础知识，无聊时可以做一下智力题专项训练，预防青年痴呆。</p>
+<h4 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h4><p>推荐大家使用<a href="https://www.nowcoder.com" target="_blank" rel="noopener">牛客网</a>，偶尔可以刷刷题，巩固一下基础知识，无聊时可以做一下智力题专项训练，预防青年痴呆。</p>
 <h4 id="补更结果"><a href="#补更结果" class="headerlink" title="补更结果"></a>补更结果</h4><p>今天结果出来了很意外，先看了下求职竞争力报告，分数挺低的，挺可惜的，后来和同学详聊的时候，他发现我进排行榜了，着实吓了一跳，这下觉得更可惜了。以下附上求职竞争力报告和排行榜。</p>
-<p><a href="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/posts/img/Job_competitiveness_report.pdf" target="_blank" rel="external">求职竞争力报告</a></p>
+<p><a href="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/posts/img/Job_competitiveness_report.pdf" target="_blank" rel="noopener">求职竞争力报告</a></p>
 <p><img src="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/posts/img/Leaderboard.png" alt="2017-05-19排行榜"></p>
 ]]></content>
       
         
         <tags>
             
+            <tag> life </tag>
+            
             <tag> 牛客 </tag>
             
             <tag> 程序猿 </tag>
-            
-            <tag> life </tag>
             
         </tags>
         
@@ -1265,23 +1292,23 @@ git log --graph --pretty=oneline --abbrev-commit    查看分支合并情况
       <title><![CDATA[我的站点]]></title>
       <url>https://whark.cn/2017/03/25/my-website/</url>
       <content type="html"><![CDATA[<h3 id="个人博客"><a href="#个人博客" class="headerlink" title="个人博客"></a>个人博客</h3><ul>
-<li><a href="https://wlwshow.cn" target="_blank" rel="external">wlwshow.cn</a></li>
-<li><a href="http://dphong.top" target="_blank" rel="external">dphong.top</a></li>
-<li><a href="http://iotshow.top" target="_blank" rel="external">iotshow.top</a></li>
-<li><a href="http://dphong.github.io" target="_blank" rel="external">dphong.github.io</a></li>
+<li><a href="https://wlwshow.cn" target="_blank" rel="noopener">wlwshow.cn</a></li>
+<li><a href="http://dphong.top" target="_blank" rel="noopener">dphong.top</a></li>
+<li><a href="http://iotshow.top" target="_blank" rel="noopener">iotshow.top</a></li>
+<li><a href="http://dphong.github.io" target="_blank" rel="noopener">dphong.github.io</a></li>
 </ul>
 <h3 id="智能物流系统管理平台"><a href="#智能物流系统管理平台" class="headerlink" title="智能物流系统管理平台"></a>智能物流系统管理平台</h3><ul>
-<li><a href="https://iot.wlwshow.cn" target="_blank" rel="external">iot.wlwshow.cn</a></li>
-<li><a href="http://iot.iotshow.top" target="_blank" rel="external">iot.iotshow.top</a></li>
+<li><a href="https://iot.wlwshow.cn" target="_blank" rel="noopener">iot.wlwshow.cn</a></li>
+<li><a href="http://iot.iotshow.top" target="_blank" rel="noopener">iot.iotshow.top</a></li>
 </ul>
 <h3 id="物联网作品展示平台"><a href="#物联网作品展示平台" class="headerlink" title="物联网作品展示平台"></a>物联网作品展示平台</h3><ul>
-<li><a href="https://work.wlwshow.cn" target="_blank" rel="external">work.wlwshow.cn</a></li>
+<li><a href="https://work.wlwshow.cn" target="_blank" rel="noopener">work.wlwshow.cn</a></li>
 </ul>
 <h3 id="Linux-IP上传地址"><a href="#Linux-IP上传地址" class="headerlink" title="Linux IP上传地址"></a>Linux IP上传地址</h3><ul>
-<li><a href="http://ip.wlwshow.cn" target="_blank" rel="external">ip.wlwshow.cn</a></li>
+<li><a href="http://ip.wlwshow.cn" target="_blank" rel="noopener">ip.wlwshow.cn</a></li>
 </ul>
 <h3 id="百度地图API使用示例"><a href="#百度地图API使用示例" class="headerlink" title="百度地图API使用示例"></a>百度地图API使用示例</h3><ul>
-<li><a href="http://map.wlwshow.cn" target="_blank" rel="external">map.wlwshow.cn</a></li>
+<li><a href="http://map.wlwshow.cn" target="_blank" rel="noopener">map.wlwshow.cn</a></li>
 </ul>
 ]]></content>
       
@@ -1298,7 +1325,7 @@ git log --graph --pretty=oneline --abbrev-commit    查看分支合并情况
       <title><![CDATA[我的2016]]></title>
       <url>https://whark.cn/2016/12/31/my-2016/</url>
       <content type="html"><![CDATA[<p>2016年的整体感觉就是学的东西很杂，什么都学了，什么都没深入，上半年还比较有斗志，下半年什么都没学到，就这样浑浑噩噩的过完了。</p>
-<h2 id="关于学习"><a href="#关于学习" class="headerlink" title="关于学习"></a>关于学习</h2><p>上半年虽然参加了很多的比赛，但哪个比赛都没做好。下半年则是什么都没学好，就只是弄了下云服务器，机器人小组培训、附中代课、帮老师帮忙，这一些琐碎的生活占据了我大部分的学习时间。回想这一年也就只有大二下学期期末之前做<a href="http://wlwshow.cn" target="_blank" rel="external">物联网作品展示平台</a>这个网站的时候，真正奋斗过一段时间，现在想起来，那段时间是那样的充实。</p>
+<h2 id="关于学习"><a href="#关于学习" class="headerlink" title="关于学习"></a>关于学习</h2><p>上半年虽然参加了很多的比赛，但哪个比赛都没做好。下半年则是什么都没学好，就只是弄了下云服务器，机器人小组培训、附中代课、帮老师帮忙，这一些琐碎的生活占据了我大部分的学习时间。回想这一年也就只有大二下学期期末之前做<a href="http://wlwshow.cn" target="_blank" rel="noopener">物联网作品展示平台</a>这个网站的时候，真正奋斗过一段时间，现在想起来，那段时间是那样的充实。</p>
 <h2 id="关于竞赛"><a href="#关于竞赛" class="headerlink" title="关于竞赛"></a>关于竞赛</h2><h3 id="robocup-2D"><a href="#robocup-2D" class="headerlink" title="robocup 2D"></a>robocup 2D</h3><p>这个曾经奋斗了一年的项目，因为它，我结识到一群挚友，和他们共同努力，我的人生开始因此而不同，梦想始于此。</p>
 <h3 id="ACM"><a href="#ACM" class="headerlink" title="ACM"></a>ACM</h3><p>4月份的时候参加了学校集体报名的CCF计算机资格认证，因为成绩还不错，就被朱强老师叫去参加安徽省的ACM程序设计竞赛，和实验室的战友一起去参加了这次比赛，因为那段时间比较忙，并没有怎么去准备，ACM的基本框架都不怎么会写，该特别注意的地方也不知道，因为不知道 “printf” 和 “cout” 在处理数据时的速度差别，导致一个已经做出来的题目因为 “timeout” 而无法通过测试，对此特别遗憾。</p>
 <h3 id="物联网创新创业大赛"><a href="#物联网创新创业大赛" class="headerlink" title="物联网创新创业大赛"></a>物联网创新创业大赛</h3><p>当时和两个室友一起加入了这个小组，感觉冯玉婷老师付出的比我们的都多，然而我们一学期都没能坚持下来，然后整个项目就荒废掉了，暑假的比赛也没报名参加，无果而终。</p>
@@ -1346,11 +1373,11 @@ git log --graph --pretty=oneline --abbrev-commit    查看分支合并情况
         
         <tags>
             
-            <tag> skill </tag>
-            
             <tag> 批处理 </tag>
             
             <tag> Excel </tag>
+            
+            <tag> skill </tag>
             
         </tags>
         

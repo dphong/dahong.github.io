@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh">
-    <head>
+    <head><meta name="generator" content="Hexo 3.9.0">
     
     <title>使用Python抓取数据 | Whark&#39;s Blog</title>
 
@@ -463,7 +463,7 @@ function IsPC() {
                 <div id="post-content" class="mdl-color-text--grey-900 mdl-card__supporting-text fade out">
     
         <p>本文以律师行业信用服务平台为例，介绍如何对页面数据进行提取，保存。</p>
-<h3 id="开始：页面数据分析"><a href="#开始：页面数据分析" class="headerlink" title="开始：页面数据分析"></a>开始：页面数据分析</h3><p>打开 <a href="http://credit.gdlawyer.org.cn/front/indexFront/listDetail?type=1" target="_blank" rel="external">广东省律师行业信用信息服务平台</a> ，F12打开控制台，点击Network，刷新界面，发现了向API请求的接口，返回的资源是 <strong>Json</strong> 格式的，而且资源中的数据就是页面上的，就能确认页面中的律师信息就是通过这个接口读取的，本站点是采用前后端分离写的，如果没有类似的请求，数据是直接渲染在HTML中，说明HTML在后端已经处理好了，只能按标签，分离数据了。</p>
+<h3 id="开始：页面数据分析"><a href="#开始：页面数据分析" class="headerlink" title="开始：页面数据分析"></a>开始：页面数据分析</h3><p>打开 <a href="http://credit.gdlawyer.org.cn/front/indexFront/listDetail?type=1" target="_blank" rel="noopener">广东省律师行业信用信息服务平台</a> ，F12打开控制台，点击Network，刷新界面，发现了向API请求的接口，返回的资源是 <strong>Json</strong> 格式的，而且资源中的数据就是页面上的，就能确认页面中的律师信息就是通过这个接口读取的，本站点是采用前后端分离写的，如果没有类似的请求，数据是直接渲染在HTML中，说明HTML在后端已经处理好了，只能按标签，分离数据了。</p>
 <p><img src="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/posts/img/lawyer_find_api_address.jpg" alt="lawyer_find_api_address"></p>
 <h3 id="尝试：API接口调用"><a href="#尝试：API接口调用" class="headerlink" title="尝试：API接口调用"></a>尝试：API接口调用</h3><p>看看API能不能正常访问，如下图：</p>
 <p><img src="https://whark.oss-cn-hangzhou.aliyuncs.com/blog/posts/img/lawyer_api_address_try.jpg" alt="lawyer_api_address_try"></p>
@@ -907,7 +907,7 @@ print(&quot;数据保存完毕，总执行时间：%ss，总等待时间：%ds&q
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2019/03/">三月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/05/">五月 2017<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/12/">十二月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/09/">九月 2016<span class="sidebar_archives-count">1</span></a>
+                <a class="sidebar_archives-link" href="/archives/2019/08/">八月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/03/">三月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/05/">五月 2017<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/12/">十二月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/09/">九月 2016<span class="sidebar_archives-count">1</span></a>
             </ul>
         </li>
         
