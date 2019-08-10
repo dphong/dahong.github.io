@@ -532,13 +532,13 @@ $Obj= Container::make(&#39;B&#39;, [&#39;A&#39;, [&#39;aaa&#39;]]);
         
         <tags>
             
-            <tag> 容器 </tag>
-            
             <tag> PHP </tag>
             
             <tag> 依赖注入 </tag>
             
             <tag> 控制反转 </tag>
+            
+            <tag> 容器 </tag>
             
             <tag> 注册树 </tag>
             
@@ -749,9 +749,9 @@ RUN curl -fsSL &#39;https://xcache.lighttpd.net/pub/Releases/3.2.0/xcache-3.2.0.
             
             <tag> skill </tag>
             
-            <tag> Docker </tag>
-            
             <tag> 容器 </tag>
+            
+            <tag> Docker </tag>
             
             <tag> 环境搭建 </tag>
             
@@ -1146,9 +1146,9 @@ if (parse_url( $_SERVER[&#39;REQUEST_URI&#39;] )[&#39;path&#39;] === $url) {
         
         <tags>
             
-            <tag> website </tag>
-            
             <tag> PHP </tag>
+            
+            <tag> website </tag>
             
             <tag> 访问控制 </tag>
             
