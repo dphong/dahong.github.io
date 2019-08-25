@@ -19,7 +19,7 @@ sudo apt-get install xvfb
 <pre><code>dpkg: unrecoverable fatal error, aborting:
 unable to create &#39;/var/lib/dpkg/updates/tmp.i&#39;: No space left on device
 </code></pre><p>查看磁盘剩余空间，发现空间还很充裕</p>
-<p>root@blueshark-us2:~/bs2-python# df -h</p>
+<p>root@aliyun:~/python# df -h</p>
 <pre><code>Filesystem      Size  Used Avail Use% Mounted on
 udev            3.9G     0  3.9G   0% /dev
 tmpfs           798M  3.1M  795M   1% /run
@@ -49,7 +49,7 @@ display.stop()
 <p>发现如下报错<br>    unable to create ‘/tmp/.com.google.Chrome.DFid4m’: No space left on device</p>
 <p>到 /tmp 下查看，发现超级多 <em>.com.google.Chrome</em> 开头的文件，猜想可能是因为很多小文件，把系统的 inode 用完了</p>
 <p>查看磁盘inode使用情况，发现系统inode的确已经用完了</p>
-<p>root@blueshark-us2:~/bs2-python# df -i</p>
+<p>root@aliyun:~/python# df -i</p>
 <pre><code>Filesystem       Inodes   IUsed    IFree IUse% Mounted on
 udev            1013942     420  1013522    1% /dev
 tmpfs           1021032    1105  1019927    1% /run
@@ -81,7 +81,7 @@ do
 done
 </code></pre>
 <p>再次查看 inode，恢复正常，启动 saver 正常运行 </p>
-<p>root@blueshark-us2:/tmp# df -i</p>
+<p>root@aliyun:/tmp# df -i</p>
 <pre><code>Filesystem       Inodes   IUsed    IFree IUse% Mounted on 
 udev            1013942     420  1013522    1% /dev 
 tmpfs           1021032    1105  1019927    1% /run 
