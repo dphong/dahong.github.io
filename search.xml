@@ -4,6 +4,112 @@
   
     
     <entry>
+      <title><![CDATA[程序创建过多临时文件，导致系统inode不足问题排查]]></title>
+      <url>https://whark.cn/2019/08/25/selenium-troubleshooting/</url>
+      <content type="html"><![CDATA[<p>尝试运行 selenium 程序，发现如下报错</p>
+<pre><code>easyprocess.EasyProcessCheckInstalledError: cmd=[&#39;Xvfb&#39;, &#39;-help&#39;]
+OSError=None
+Program install error!
+You can install it in terminal:
+sudo apt-get install xvfb
+</code></pre><p>尝试安装 xvfb</p>
+<pre><code class="shell">sudo apt-get install xvfb
+</code></pre>
+<p>发现提示磁盘空间不足，No space left on device</p>
+<pre><code>dpkg: unrecoverable fatal error, aborting:
+unable to create &#39;/var/lib/dpkg/updates/tmp.i&#39;: No space left on device
+</code></pre><p>查看磁盘剩余空间，发现空间还很充裕</p>
+<p>root@blueshark-us2:~/bs2-python# df -h</p>
+<pre><code>Filesystem      Size  Used Avail Use% Mounted on
+udev            3.9G     0  3.9G   0% /dev
+tmpfs           798M  3.1M  795M   1% /run
+/dev/vda1        40G   14G   24G  37% /
+tmpfs           3.9G     0  3.9G   0% /dev/shm
+tmpfs           5.0M     0  5.0M   0% /run/lock
+tmpfs           3.9G     0  3.9G   0% /sys/fs/cgroup
+/dev/vdb1       196G   90G   96G  49% /opt
+/dev/vdc1        98G   11G   83G  12% /data
+tmpfs           798M     0  798M   0% /run/user/0
+</code></pre><p>再次尝试安装 xvfb，安装成功，尝试运行 saver，错误依旧</p>
+<p>测试运行最基础的 selenium 功能</p>
+<pre><code class="python">from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from pyvirtualdisplay import Display
+
+display = Display(visible=0, size=(1920, 1000))
+display.start()
+options = Options()
+options.add_argument(&quot;start-maximized&quot;)
+driver = webdriver.Chrome()
+driver.get(&#39;https://www.google.com&#39;)
+print(&quot;Page Title is : %s&quot; %driver.title)
+driver.quit()
+display.stop()
+</code></pre>
+<p>发现如下报错<br>    unable to create ‘/tmp/.com.google.Chrome.DFid4m’: No space left on device</p>
+<p>到 /tmp 下查看，发现超级多 <em>.com.google.Chrome</em> 开头的文件，猜想可能是因为很多小文件，把系统的 inode 用完了</p>
+<p>查看磁盘inode使用情况，发现系统inode的确已经用完了</p>
+<p>root@blueshark-us2:~/bs2-python# df -i</p>
+<pre><code>Filesystem       Inodes   IUsed    IFree IUse% Mounted on
+udev            1013942     420  1013522    1% /dev
+tmpfs           1021032    1105  1019927    1% /run
+/dev/vda1       2621440 2621438        2  100% /
+tmpfs           1021032       1  1021031    1% /dev/shm
+tmpfs           1021032       2  1021030    1% /run/lock
+tmpfs           1021032      18  1021014    1% /sys/fs/cgroup
+/dev/vdb1      13107200  690724 12416476    6% /opt
+/dev/vdc1       6553600  120731  6432869    2% /data
+tmpfs           1021032     275  1020757    1% /run/user/0
+</code></pre><p>尝试使用 *rm -rf /tmp/.com.google.Chrome.** 删除，发现如下报错</p>
+<pre><code>-bash: /bin/rm: Argument list too long
+</code></pre><p>尝试多种方法想快速删除，无果（/tmp 文件夹下有如 tmux-0 的文件，tmux 的 session 保存在这个文件夹，如果删掉，tmux可能会出问题，所以选择只删除 chrome 的临时文件，保留其它文件）</p>
+<p>想到了一种笨办法：</p>
+<pre><code class="shell">rm -rf /tmp/.com.google.Chrome.1
+rm -rf /tmp/.com.google.Chrome.2
+...
+rm -rf /tmp/.com.google.Chrome.z
+</code></pre>
+<p>于是就有了下面的这个shell</p>
+<pre><code class="shell">#/bin/bash
+chars=(&quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot; &quot;R&quot; &quot;S&quot; &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot; &quot;Z&quot; &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot; &quot;k&quot; &quot;l&quot; &quot;m&quot; &quot;n&quot; &quot;o&quot; &quot;p&quot; &quot;q&quot; &quot;r&quot; &quot;s&quot; &quot;t&quot; &quot;u&quot; &quot;v&quot; &quot;w&quot; &quot;x&quot; &quot;y&quot; &quot;z&quot; &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; &quot;5&quot; &quot;6&quot; &quot;7&quot; &quot;8&quot; &quot;9&quot; &quot;0&quot;)
+for value in ${chars[@]}
+do
+{
+    echo &quot;/tmp/.com.google.Chrome.&quot;$value&quot;*&quot;
+    rm -rf /tmp/.com.google.Chrome.&quot;$value&quot;*
+}&amp;
+done
+</code></pre>
+<p>再次查看 inode，恢复正常，启动 saver 正常运行 </p>
+<p>root@blueshark-us2:/tmp# df -i</p>
+<pre><code>Filesystem       Inodes   IUsed    IFree IUse% Mounted on 
+udev            1013942     420  1013522    1% /dev 
+tmpfs           1021032    1105  1019927    1% /run 
+/dev/vda1       2621440 1634826   986614   63% / 
+tmpfs           1021032       1  1021031    1% /dev/shm 
+tmpfs           1021032       2  1021030    1% /run/lock 
+tmpfs           1021032      18  1021014    1% /sys/fs/cgroup 
+/dev/vdb1      13107200  691129 12416071    6% /opt 
+/dev/vdc1       6553600  120747  6432853    2% /data 
+tmpfs           1021032     275  1020757    1% /run/user/0 
+</code></pre>]]></content>
+      
+        
+        <tags>
+            
+            <tag> skill </tag>
+            
+            <tag> Linux </tag>
+            
+            <tag> selenium </tag>
+            
+            <tag> python </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[使用GitHub的Markdown写博客]]></title>
       <url>https://whark.cn/2019/08/10/use-github-write-blog/</url>
       <content type="html"><![CDATA[<blockquote>
