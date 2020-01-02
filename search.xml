@@ -4,6 +4,23 @@
   
     
     <entry>
+      <title><![CDATA[我的2019]]></title>
+      <url>https://whark.cn/2019/12/31/2019/</url>
+      <content type="html"><![CDATA[<p>再有几分钟就2020年了，今年可真够失败的，年初订的目标刚刚计算了一下完成度，才 44.2%，不及预期，下面贴一张2019的计划和完成度核验：</p>
+<p><img src="https://oss.whark.cn/blog/posts/img/2019%E5%B9%B4%E8%AE%A1%E5%88%92%E5%AE%8C%E6%88%90%E5%BA%A6.png" alt="2019年计划完成度"></p>
+<p>完成情况堪忧，2020年要更加自律。</p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> life </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[程序创建过多临时文件，导致系统inode不足问题排查]]></title>
       <url>https://whark.cn/2019/08/25/selenium-troubleshooting/</url>
       <content type="html"><![CDATA[<p>尝试运行 selenium 程序，发现如下报错</p>
