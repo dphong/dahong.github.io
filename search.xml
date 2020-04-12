@@ -4,6 +4,98 @@
   
     
     <entry>
+      <title><![CDATA[How to build a network disk server on Linux]]></title>
+      <url>https://whark.cn/2020/04/11/use-ownCloud-to-build-a-network-server-on-linux/</url>
+      <content type="html"><![CDATA[<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><ol>
+<li><p>准备好Linux服务器，本地或线上均可,本文以centos8为例。(推荐阿里云的共享计算实例，性价比较高，自己家里有网络条件搞本地服务器当然更好)</p>
+</li>
+<li><p>安装好 <code>docker-ce</code> 和 <code>docker-compose</code>, Reference: <a href="https://www.linuxtechi.com/install-docker-ce-centos-8-rhel-8/" target="_blank" rel="noopener">How to Install Docker CE on CentOS 8 / RHEL 8</a></p>
+</li>
+</ol>
+<pre><code class="shell">  # Step1: Enable Docker CE Repository
+  dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
+
+  # Step2: Install Docker CE using dnf command
+  dnf install docker-ce --nobest -y
+  systemctl start docker
+  systemctl enable docker
+
+  # Step3: Install Docker Compose
+  curl -L &quot;https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose
+  chmod +x /usr/local/bin/docker-compose
+  ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+
+  # Setp4: Modify Docker registry mirrors to use 163 registry mirrors
+  vim /etc/docker/daemon.json
+  {
+    &quot;registry-mirrors&quot;: [&quot;http://hub-mirror.c.163.com&quot;]
+  }
+  systemctl restart docker.service
+</code></pre>
+<ol start="3">
+<li><p>安装 <code>ownCloud</code>, Reference: <a href="https://doc.owncloud.org/server/10.4/admin_manual/installation/docker/" target="_blank" rel="noopener">Installing ownCloud with Docker</a></p>
+<pre><code class="shell"># Create a new project directory
+mkdir owncloud-docker-server
+
+cd owncloud-docker-server
+
+# Copy docker-compose.yml from the GitHub repository
+wget https://raw.githubusercontent.com/owncloud/docs/master/modules/admin_manual/examples/installation/docker/docker-compose.yml
+
+# Create the environment configuration file
+cat &lt;&lt; EOF &gt; .env
+OWNCLOUD_VERSION=10.4
+OWNCLOUD_DOMAIN=localhost
+ADMIN_USERNAME=admin
+ADMIN_PASSWORD=admin
+HTTP_PORT=8080
+EOF
+
+# Build and start the container
+docker-compose up -d
+</code></pre>
+</li>
+</ol>
+<ol start="5">
+<li><p>挂载阿里云OSS到服务器，当做硬盘来存储网盘中的数据</p>
+<ul>
+<li>在阿里云上<a href="https://oss.console.aliyun.com/bucket" target="_blank" rel="noopener">创建一个OSS的Bucket</a>，和ECS选择同区域，存储类型选标准存储，读写权限私有，服务器端加密设置为AES256加密，其余设置默认。</li>
+<li>需要创建一个只能使用OSS的用户，来通过API访问OSS中的文件，<a href="https://ram.console.aliyun.com/users" target="_blank" rel="noopener">RAM访问控制</a>,创建时设置为只允许编程访问，并授予<code>AliyunOSSFullAccess</code>权限。</li>
+<li>安装ossfs来挂载oss到服务器</li>
+</ul>
+<pre><code>
+ [root@test]# df -h | grep -v &#39;/var/lib/docker&#39;
+  Filesystem      Size  Used Avail Use% Mounted on
+  devtmpfs        1.9G     0  1.9G   0% /dev
+  tmpfs           1.9G     0  1.9G   0% /dev/shm
+  tmpfs           1.9G  684K  1.9G   1% /run
+  tmpfs           1.9G     0  1.9G   0% /sys/fs/cgroup
+  /dev/vda1        20G  4.6G   16G  23% /
+  tmpfs           379M     0  379M   0% /run/user/0
+  ossfs           256T     0  256T   0% /data/ossfs
+</code></pre><p><a href="https://help.aliyun.com/document_detail/32196.html" target="_blank" rel="noopener">https://help.aliyun.com/document_detail/32196.html</a></p>
+</li>
+</ol>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> Linux </tag>
+            
+            <tag> Docker </tag>
+            
+            <tag> Centos </tag>
+            
+            <tag> netdisk </tag>
+            
+            <tag> ownCloud </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[我的2019]]></title>
       <url>https://whark.cn/2019/12/31/2019/</url>
       <content type="html"><![CDATA[<p>再有几分钟就2020年了，今年可真够失败的，年初订的目标刚刚计算了一下完成度，才 44.2%，不及预期，下面贴一张2019的计划和完成度核验：</p>
