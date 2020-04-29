@@ -89,7 +89,7 @@ docker-compose up -d
             
             <tag> netdisk </tag>
             
-            <tag> ownCloud </tag>
+            <tag> NextCloud </tag>
             
         </tags>
         
